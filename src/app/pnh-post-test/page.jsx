@@ -5,7 +5,6 @@ import PnhPostTest from "@/components/PnhPostTest";
 
 
 
-    const apiKey = process.env.NEXT_PUBLIC_TYPEFORM_TOKEN;
     
     const endpoint = `https://api.typeform.com/forms/dGNnJsgE`;
     //  const token = process.env.NEXT_PUBLIC_HYGRAPH_TOKEN;
@@ -15,7 +14,7 @@ const page = async() => {
  const response = await fetch(endpoint, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${apiKey}`,
+                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TYPEFORM_TOKEN}`,
                 'Content-Type': 'application/json'
             }
         });

@@ -80,7 +80,7 @@ const overwriteAndPublishQuest = async (newData) => {
       // Step 2: Delete the existing quest
       const questId = existingData.pnhPostTests[0].id;
       await client.request(deleteQuestMutation, { id: questId });
-      console.log('Existing quest. deleted');
+      console.log('Existing quest deleted');
     }
 
     // Step 3: Create a new quest
