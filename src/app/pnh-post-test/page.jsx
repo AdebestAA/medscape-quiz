@@ -7,7 +7,7 @@ import PnhPostTest from "@/components/PnhPostTest";
 
     // const apiKey = process.env.NEXT_PUBLIC_TYPEFORM_TOKEN;
     
-    const apiKey =  process.env.NEXT_PUBLIC_TYPEFORM_TOKEN;
+    const apiKey =  'tfp_5STMP6af8QDkVS9HXxKUm7cmKWvW2Worqp3VEEV9oXHd_fY1GXP4RYX6X'
     const endpoint = `https://api.typeform.com/forms/dGNnJsgE`;
     //  const token = process.env.NEXT_PUBLIC_HYGRAPH_TOKEN;
 
