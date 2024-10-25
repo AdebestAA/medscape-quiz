@@ -20,6 +20,7 @@ const page = async() => {
         // if (!response.ok) {
           //     throw new Error(`Error: ${response.statusText}`);
           // }
+    console.log("removed");
     
           const data = await response.json();
           console.log(data);
