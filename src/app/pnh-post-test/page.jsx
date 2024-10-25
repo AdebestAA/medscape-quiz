@@ -19,12 +19,13 @@ const page = async() => {
             }
         });
         // console.log(response);
-        
+        console.log("environement varibale",process.env.NEXT_PUBLIC_TYPEFORM_TOKEN)
         
         // if (!response.ok) {
           //     throw new Error(`Error: ${response.statusText}`);
           // }
           
+
           const data = await response.json();
           console.log(data);
 
