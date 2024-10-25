@@ -1,6 +1,7 @@
-"use client"
+
 // import PnhPostTest from "@/components/PnhPostTest";
 
+import JustChecking from "@/components/JustChecking";
 import PnhPostTest from "@/components/PnhPostTest";
 
 
@@ -11,30 +12,28 @@ import PnhPostTest from "@/components/PnhPostTest";
 
 const page = async() => {
 
-//  const response = await fetch(endpoint, {
-//             method: 'GET',
-//             headers: {
-//                 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TYPEFORM_TOKEN}`,
-//                 'Content-Type': 'application/json'
-//             }
-//         });
+ const response = await fetch(endpoint, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TYPEFORM_TOKEN}`,
+                'Content-Type': 'application/json'
+            }
+        });
         // console.log(response);
-        console.log("environement varibale with next extnesion",process.env.NEXT_PUBLIC_TYPEFORM_TOKEN)
-        console.log("environement varibale no next entension",process.env.TYPEFORM_TOKEN)
-        console.log("just log");
+        // console.log("environement varibale with next extnesion",process.env.NEXT_PUBLIC_TYPEFORM_TOKEN)
+        // console.log("environement varibale no next entension",process.env.TYPEFORM_TOKEN)
+        // console.log("just log");
         
         // if (!response.ok) {
           //     throw new Error(`Error: ${response.statusText}`);
           // }
           
 
-        //   const data = await response.json();
-        //   console.log(data);
+          const data = await response.json();
+          console.log(data);
 
   return (
-    <div>
-        <h1>checking</h1>
-    </div>
+ <JustChecking dataFromTypeForm={data} noNextExtention={process.env.TYPEFORM_TOKEN} nextExt={process.env.NEXT_PUBLIC_TYPEFORM_TOKEN}/>
 //  <PnhPostTest dataFromTypeForm={data}  />
 
   )
