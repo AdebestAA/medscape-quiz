@@ -37,7 +37,7 @@ const surveyInfos = [
   {
     id:"3",
     name:"MG HIT 4",
-    link:"/typeformquiz"
+    link:"/mg-hit-four"
   },
   {
     id:"4",
