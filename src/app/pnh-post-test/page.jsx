@@ -19,7 +19,9 @@ const page = async() => {
             }
         });
         // console.log(response);
-        console.log("environement varibale",process.env.NEXT_PUBLIC_TYPEFORM_TOKEN)
+        console.log("environement varibale with next extnesion",process.env.NEXT_PUBLIC_TYPEFORM_TOKEN)
+        console.log("environement varibale no next entension",process.env.TYPEFORM_TOKEN)
+        console.log("just log");
         
         // if (!response.ok) {
           //     throw new Error(`Error: ${response.statusText}`);
@@ -30,7 +32,10 @@ const page = async() => {
           console.log(data);
 
   return (
- <PnhPostTest dataFromTypeForm={data}  />
+    <div>
+        <h1>checking</h1>
+    </div>
+//  <PnhPostTest dataFromTypeForm={data}  />
 
   )
 }
