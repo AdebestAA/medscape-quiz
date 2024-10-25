@@ -1,10 +1,35 @@
-import React from 'react'
+import MgHitThree from '@/components/MgHitThree';
 
-const page = () => {
+
+    const endpoint = `https://api.typeform.com/forms/fFHLU2hC`;
+const page = async() => {
+
+
+   const response = await fetch(endpoint, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${process.env.TYPEFORM_TOKEN}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        // console.log(response);
+        
+        
+        if (!response.ok) {
+              throw new Error(`Error: ${response.statusText}`);
+          }
+          
+          const data = await response.json();
+        //   console.log(data);
+   
+
+
+
   return (
-    <div>
-      mg hit three
-    </div>
+    <>
+
+      <MgHitThree dataFromTypeForm={data} />
+    </>
   )
 }
 
