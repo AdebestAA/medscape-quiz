@@ -1,4 +1,4 @@
-
+"use client"
 // import PnhPostTest from "@/components/PnhPostTest";
 
 import PnhPostTest from "@/components/PnhPostTest";
@@ -11,13 +11,13 @@ import PnhPostTest from "@/components/PnhPostTest";
 
 const page = async() => {
 
- const response = await fetch(endpoint, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TYPEFORM_TOKEN}`,
-                'Content-Type': 'application/json'
-            }
-        });
+//  const response = await fetch(endpoint, {
+//             method: 'GET',
+//             headers: {
+//                 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TYPEFORM_TOKEN}`,
+//                 'Content-Type': 'application/json'
+//             }
+//         });
         // console.log(response);
         console.log("environement varibale with next extnesion",process.env.NEXT_PUBLIC_TYPEFORM_TOKEN)
         console.log("environement varibale no next entension",process.env.TYPEFORM_TOKEN)
@@ -28,8 +28,8 @@ const page = async() => {
           // }
           
 
-          const data = await response.json();
-          console.log(data);
+        //   const data = await response.json();
+        //   console.log(data);
 
   return (
     <div>
