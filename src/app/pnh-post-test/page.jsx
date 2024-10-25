@@ -15,7 +15,7 @@ const page = async() => {
  const response = await fetch(endpoint, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_TYPEFORM_TOKEN}`,
+                'Authorization': `Bearer ${process.env.TYPEFORM_TOKEN}`,
                 'Content-Type': 'application/json'
             }
         });
