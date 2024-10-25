@@ -33,8 +33,8 @@ const page = async() => {
           console.log(data);
 
   return (
- <JustChecking dataFromTypeForm={data} noNextExtention={process.env.TYPEFORM_TOKEN} nextExt={process.env.NEXT_PUBLIC_TYPEFORM_TOKEN}/>
-//  <PnhPostTest dataFromTypeForm={data}  />
+
+ <PnhPostTest dataFromTypeForm={data}  />
 
   )
 }
