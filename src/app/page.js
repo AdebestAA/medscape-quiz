@@ -56,7 +56,12 @@ const surveyInfos = [
   },
   {
     id:"7",
-    name:"N.13.23 ITP Webhooks (copy) {still in process}",
+    name:"N.13.23 ITP Webhooks (copy)",
     link:"/itp-webhooks"
+  },
+  {
+    id:"8",
+    name:"N.15.24 (Asthma)",
+    link:"/n-ashtma"
   },
 ]
