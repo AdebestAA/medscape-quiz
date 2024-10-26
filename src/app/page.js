@@ -3,9 +3,11 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-   <main className={"flex flex-col justify-center items-center  h-screen bg-[#F7F7F6] "}>
+   <main className={"h-screen bg-[#F7F7F6] overflow-y-scroll"}>
+<div className="flex flex-col justify-center items-center">
 
-<h1 className="italic underline font-semibold text-lg">Surveys</h1>
+
+<h1 className="italic underline font-semibold text-lg mt-4">Surveys</h1>
 <div className="w-full">
 {surveyInfos.map((item,index)=>{
 
@@ -17,7 +19,7 @@ export default function Home() {
 })}
 
 </div>
-
+</div>
     </main>
   );
 }
@@ -63,5 +65,10 @@ const surveyInfos = [
     id:"8",
     name:"N.15.24 (Asthma)",
     link:"/n-ashtma"
+  },
+  {
+    id:"9",
+    name:"N.14.24 (Weight Loss) {still in process....}",
+    link:"/n-weight-loss"
   },
 ]
