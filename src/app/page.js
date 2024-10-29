@@ -68,7 +68,12 @@ const surveyInfos = [
   },
   {
     id:"9",
-    name:"N.14.24 (Weight Loss) {still in process....}",
+    name:"N.14.24 (Weight Loss) ",
     link:"/n-weight-loss"
+  },
+  {
+    id:"10",
+    name:"N.13.24 (Arthritis)",
+    link:"/n-arthritis"
   },
 ]

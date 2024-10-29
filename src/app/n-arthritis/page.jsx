@@ -1,10 +1,9 @@
 
-// import ItpWebhooks from "@/components/ItpWebhooks";
-import NWeight from '@/components/NWeight';
+import NArthriti from '@/components/NArthritis';
 import React from 'react'
 
 
-const endpoint = `https://api.typeform.com/forms/AERFRkla`;
+const endpoint = `https://api.typeform.com/forms/XysRZJsm`;
 
 const page = async() => {
 
@@ -26,7 +25,8 @@ const page = async() => {
           console.log(data);
 
         return (
-        <NWeight dataFromTypeForm={data}  />
+        <NArthriti dataFromTypeForm={data}  />
+
 //         <div className='flex justify-center items-center h-screen text-[navy] font-bold'>
 // <p>
 //  still in process...
