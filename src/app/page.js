@@ -76,4 +76,14 @@ const surveyInfos = [
     name:"N.13.24 (Arthritis)",
     link:"/n-arthritis"
   },
+  {
+    id:"11",
+    name:"NPain",
+    link:"/n-pain"
+  },
+  {
+    id:"12",
+    name:"NHeadache",
+    link:"/n-headache"
+  },
 ]
