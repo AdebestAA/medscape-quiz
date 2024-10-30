@@ -1,11 +1,12 @@
 
 
-import NPain from '@/components/NPain';
+
+import NZeroSixAsthma from '@/components/NZeroSixAsthma';
 
 import React from 'react'
 
 
-const endpoint = `https://api.typeform.com/forms/zaSiFkt2`;
+const endpoint = `https://api.typeform.com/forms/oi1jqbLO`;
 
 const page = async() => {
 
@@ -27,7 +28,7 @@ const page = async() => {
           console.log(data);
 
         return (
-        <NPain dataFromTypeForm={data}  />
+        <NZeroSixAsthma dataFromTypeForm={data}  />
 //         <div className='flex justify-center items-center h-screen text-[navy] font-bold'>
 // <p>
 //  still in process...

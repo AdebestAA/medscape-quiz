@@ -7,7 +7,7 @@ export default function Home() {
 <div className="flex flex-col justify-center items-center">
 
 
-<h1 className="italic underline font-semibold text-lg mt-4">Surveys</h1>
+<h1 className="italic underline font-semibold text-lg mt-4">Surveys [{surveyInfos.length}]</h1>
 <div className="w-full">
 {surveyInfos.map((item,index)=>{
 
@@ -85,5 +85,45 @@ const surveyInfos = [
     id:"12",
     name:"NHeadache",
     link:"/n-headache"
+  },
+  {
+    id:"13",
+    name:"NDyspnea",
+    link:"/n-dyspnea"
+  },
+  {
+    id:"14",
+    name:"NGi general",
+    link:"/n-gi"
+  },
+  {
+    id:"15",
+    name:"N Diarrhea",
+    link:"/n-diarrhea"
+  },
+  {
+    id:"16",
+    name:"N Cushing",
+    link:"/n-cushing"
+  },
+  {
+    id:"17",
+    name:"N.06.24 Asthma",
+    link:"/n-zero-six-asthma"
+  },
+  {
+    id:"18",
+    name:"N MS",
+    link:"/n-ms"
+  },
+  {
+    id:"19",
+    name:"N CKD",
+    link:"/n-ckd"
+  },
+  {
+    id:"20",
+    name:"N NMyeloma",
+    link:"/n-myeloma"
   },
 ]

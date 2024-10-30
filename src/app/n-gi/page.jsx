@@ -1,11 +1,10 @@
 
-
-import NPain from '@/components/NPain';
-
+// import ItpWebhooks from "@/components/ItpWebhooks";
+import NGi from '@/components/NGi';
 import React from 'react'
 
 
-const endpoint = `https://api.typeform.com/forms/zaSiFkt2`;
+const endpoint = `https://api.typeform.com/forms/QfgsQc5F`;
 
 const page = async() => {
 
@@ -27,7 +26,7 @@ const page = async() => {
           console.log(data);
 
         return (
-        <NPain dataFromTypeForm={data}  />
+        <NGi dataFromTypeForm={data}  />
 //         <div className='flex justify-center items-center h-screen text-[navy] font-bold'>
 // <p>
 //  still in process...
