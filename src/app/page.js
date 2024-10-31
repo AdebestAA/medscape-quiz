@@ -126,4 +126,29 @@ const surveyInfos = [
     name:"N NMyeloma",
     link:"/n-myeloma"
   },
+  {
+    id:"21",
+    name:"N OAB",
+    link:"/n-oab"
+  },
+  {
+    id:"22",
+    name:"N Clinic Path 1",
+    link:"/n-clinic-path-one"
+  },
+  {
+    id:"23",
+    name:"N Clinic Path 2",
+    link:"/n-clinic-path-two"
+  },
+  {
+    id:"24",
+    name:"N NSCLC",
+    link:"/n-nsclc"
+  },
+  {
+    id:"25",
+    name:"N Ahus Case 4",
+    link:"/n-ahus-case-four"
+  },
 ]

@@ -15,7 +15,7 @@ const endpoint = "https://eu-west-2.cdn.hygraph.com/content/cm2unc4yb04yb07w352l
 const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE3MzAyOTI2MzMsImF1ZCI6WyJodHRwczovL2FwaS1ldS13ZXN0LTIuaHlncmFwaC5jb20vdjIvY20ydW5jNHliMDR5YjA3dzM1MmwzZzF6dC9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC1ldS13ZXN0LTIuaHlncmFwaC5jb20vIiwic3ViIjoiZGE5NWUzYTItZTVlZS00YjZhLTliODEtZGQyYzNlZWYyMzMwIiwianRpIjoiY20ydnZrNGF1MDJpYTA3bWxmdHJlN21pMSJ9.AqQGVz4X8WP3kp6r0KD8h3GoZ8xMkHJIZR_KEVkzvDaEAt0uGwXPqCYrwFsdr719X7n4V9HVDzJYo4HO2PAOcGRV3k43XPw9lsdo7SCVEo37kwp4XcDXxzIqL4PyW6o53oAZpkuGUMhycJ6_6-EkLexxld8NiFJ24wG_VF8SeTyl3YJXDXcsW1mM5YYyTzCg94HfhRYEyxdVuiMvcavcT1DUYcOSNBMAXuNZEIdmSGHLoZHZI-GwWqh9ad_VkNYZbN1-5vqkqMWkIycz5nW4geKIf5Oim_OTmKjKNjRKKRXb9ySGGd25_5v71amCSLx7dTFMAVNvXU7b1JRUYS6aDoz6G7qKEtofB0dSMVjYYPdgeHJhxrnmwXc_q1KCKwEUsMP8rZTyhwSH1nI8M6MUZW9JYW2lrpd3JFAGbK4oEQfeTM0UTJmLn2XWwghdpeIvzJrvmUv2cqLRvkNqPlnmN4V_jbiNa_OLHtcywY9iU6ybO_p4XvOdmJSduDWiJJTphz5IIm2xvvAU4MuEsb8MlczSCvJp0hjUU9B2DR12cER-gRrcLojTes7JtkTGKRthx9ZbbA-gZHzUFUhPQlNzzFEOeseAJ_EKNDF7OdgM-SieYe2KZB9t_Nyd9SLZSWni3XmHnaAhdabvnNknX5jmaAiH5zLw2Xg8560uaohaIEc"
 
 
-const NMyeloma = ({dataFromTypeForm}) => {
+const NNSCLC = ({dataFromTypeForm}) => {
 const [typeformData,setTypeFromData] = useState(dataFromTypeForm)
 // const [storeData] = useLocalStorage(typeformData || [])
 const [dataPosted,setDataPosted] = useState(false)
@@ -38,8 +38,8 @@ overwriteAndPublishQuest(dataFromTypeForm);
 },[])
 
     const deleteQuestMutation = gql`
- mutation deleteNMyeloma($id: ID!) {
-    deleteNMyeloma(where: { id: $id }) {
+ mutation deleteNNsclc($id: ID!) {
+    deleteNNsclc(where: { id: $id }) {
       id
     }
   }
@@ -47,8 +47,8 @@ overwriteAndPublishQuest(dataFromTypeForm);
 
 // Mutation to create a new entry
 const createQuestMutation = gql`
- mutation createNMyeloma($data: NMyelomaCreateInput!) {
-    createNMyeloma(data: $data) {
+ mutation createNNsclc($data: NNsclcCreateInput!) {
+    createNNsclc(data: $data) {
       id
       placeholder
     }
@@ -57,8 +57,8 @@ const createQuestMutation = gql`
 
 // Mutation to publish the new entry
 const publishQuestMutation = gql`
-  mutation publishNMyeloma($id: ID!) {
-    publishNMyeloma(where: { id: $id }) {
+  mutation publishNNsclc($id: ID!) {
+    publishNNsclc(where: { id: $id }) {
       id
       placeholder
       publishedAt
@@ -78,7 +78,7 @@ async function tryT() {
     // const newQuest = await client.request(createQuestMutation, {
     //   fields: newData,
     // });
-    const questId = newQuest.createNMyeloma.id;
+    const questId = newQuest.createNNsclc.id;
     console.log('New quest created:', newQuest);
 }
 // tryT()
@@ -87,8 +87,8 @@ const overwriteAndPublishQuest = async (newData) => {
   try {
     // Step 1: Query to check for existing entries
     const getExistingQuestQuery = gql`
-    query getExistingNMyelomas {
-   nMyelomas {
+    query getExistingNNsclcs {
+   nNsclcs {
     id
     placeholder
     }
@@ -97,9 +97,9 @@ const overwriteAndPublishQuest = async (newData) => {
 
     const existingData = await client.request(getExistingQuestQuery);
 
-    if (existingData.nMyelomas.length > 0) {
+    if (existingData.nNsclcs.length > 0) {
       // Step 2: Delete the existing quest
-      const questId = existingData.nMyelomas[0].id;
+      const questId = existingData.nNsclcs[0].id;
       await client.request(deleteQuestMutation, { id: questId });
       console.log('Existing quest deleted');
     }
@@ -113,7 +113,7 @@ const overwriteAndPublishQuest = async (newData) => {
     // const newQuest = await client.request(createQuestMutation, {
     //   fields: newData,
     // });
-    const questId = newQuest.createNMyeloma.id;
+    const questId = newQuest.createNNsclc.id;
     console.log('New quest created:', newQuest);
 
     // Step 4: Publish the new quest
@@ -124,7 +124,7 @@ const overwriteAndPublishQuest = async (newData) => {
     console.log(publishedQuest.id);
     
    setDataPosted(()=> {
-    if (publishedQuest.publishNMyeloma.id) {
+    if (publishedQuest.publishNNsclc.id) {
       return true
     }
     else{
@@ -148,10 +148,10 @@ console.log(dataFromTypeForm);
     if (!dataPosted) {
       return
     }
-    const fetchNMyelomaData = async () => {
+    const fetchNNsclcData = async () => {
       const query = gql`
         query {
-            nMyelomas {
+            nNsclcs {
             id
             placeholder
             }
@@ -161,21 +161,25 @@ console.log(dataFromTypeForm);
       try {
         const getData = await client.request(query);
         console.log('Fetched Quest Data:', getData);
-        console.log(getData.nMyelomas[0]);
-        setQuestionsToDisplay(getData.nMyelomas)
+        console.log(getData.nNsclcs[0]);
+        setQuestionsToDisplay(getData.nNsclcs)
         
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-   fetchNMyelomaData();
+   fetchNNsclcData();
   }, [dataPosted]);
 
+useEffect(()=>{
 
+console.log("each",eachQuestAndFeedback.current);
+},[questionsToDisplay,eachQuestAndFeedback.current])
 useEffect(()=>{
 document.body.style.overflow = "hidden"
 window.scrollTo({top:0,behavior:"smooth"})
+
 },[])
 
 useEffect(()=>{
@@ -194,7 +198,6 @@ const handleScroll = ()=>{
 window.scrollTo({top:window.scrollY + eachQuestAndFeedback.current[step].getBoundingClientRect().top,behavior:"smooth"})
 }
 useEffect(()=>{
- 
 if (!startQuiz) {
 return
 }
@@ -244,7 +247,7 @@ if (questionsToDisplay.length < 1) {
     ><IoIosArrowUp className="text-white"/></button>
 </div>
 
-{questionsToDisplay[0]?.placeholder?.welcome_screens && <div className="text-center px-64 text-lg flex flex-col items-center justify-center min-h-screen">
+<div className="text-center px-64 text-lg flex flex-col items-center justify-center min-h-screen">
 {/* <h1 className="font-bold text-[navy] text-[2rem] px-32">{questionsToDisplay[0]?.placeholder?.welcome_screens[0].title.split("*").join("")}</h1> */}
 {/* <article>{questionsToDisplay[0]?.placeholder?.welcome_screens[0]?.properties.description.split("\n").map((item,index)=>{
 
@@ -267,7 +270,7 @@ if (index === 0) {
     </p>
 })}</article> */}
 
-{ questionsToDisplay[0]?.placeholder?.welcome_screens.map((welItem,welIndex)=>{
+{questionsToDisplay[0]?.placeholder?.welcome_screens.map((welItem,welIndex)=>{
 
 return (
 
@@ -303,7 +306,7 @@ onClick={()=>{
 
 
 })}
-</div>}
+</div>
 
 
 {/* questions */}
@@ -337,7 +340,6 @@ return (
     name={option.title}
     key={radioOpt?.id}
       onChange={(e)=>{
-        
         if (optionsChecked.includes(e.target.name)) {
             return
             // const removeItem = optionsChecked.filter(item => item !== e.target.name)
@@ -682,6 +684,53 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
     
 
 }
+// OPINION SCALE
+else if (quest.type == "opinion_scale") {
+ return (
+
+       <aside  ref={el => eachQuestAndFeedback.current[index] = el}  key={quest?.id} className=" text-lg  h-screen overflow-y-scroll">
+        <div className="flex flex-col items-center justify-center w-full px-64 min-h-screen"> 
+
+        
+<h1 className="w-full text-start font-bold my-4" >{quest.title}</h1>
+
+<div className={`flex justify-evenly w-full`}>
+{Array(quest.properties.steps).fill("").map((_,index)=>{
+
+return (
+    <span key={index} 
+      onClick={()=>{
+            if (step + 1 == questionsToDisplay[0]?.placeholder?.fields?.length) {
+                return
+            }
+            
+            setStep(prev => prev + 1)
+        }}
+    className="w-[15%] h-[60px] flex items-center justify-center border-[1px] rounded-md border-[#403D99] bg-[#D7DDE8] hover:bg-[#A6BCDA]">{index + 1}</span>
+)
+
+})}
+
+
+</div>
+<div className='w-full flex flex-start my-6'>
+
+<button
+onClick={()=>{
+    if (step + 1 == questionsToDisplay[0]?.placeholder?.fields?.length) {
+        return
+    }
+    
+    setStep(prev => prev + 1)
+}}
+className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
+    </div>
+    </div>
+</aside>
+ )
+    
+
+}
 
 
 
@@ -789,4 +838,4 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
   )
 }
 
-export default NMyeloma
+export default NNSCLC
