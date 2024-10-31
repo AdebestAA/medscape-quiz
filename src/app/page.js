@@ -151,4 +151,34 @@ const surveyInfos = [
     name:"N Ahus Case 4",
     link:"/n-ahus-case-four"
   },
+  {
+    id:"26",
+    name:"N Ahus Case 3",
+    link:"/n-ahus-case-three"
+  },
+  {
+    id:"27",
+    name:"N Ahus Case 2",
+    link:"/n-ahus-case-two"
+  },
+  {
+    id:"28",
+    name:"N Ahus Case 1",
+    link:"/n-ahus-case-one"
+  },
+  {
+    id:"29",
+    name:"Geoblocking N Case 2",
+    link:"/geoblock-n-case-two"
+  },
+  {
+    id:"30",
+    name:"Geoblocking N Case 1",
+    link:"/geoblock-n-case-one"
+  },
+  {
+    id:"31",
+    name:"Ahus case 4",
+    link:"/ahus-case-four"
+  },
 ]
