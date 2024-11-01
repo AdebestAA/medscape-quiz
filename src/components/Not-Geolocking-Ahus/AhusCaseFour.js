@@ -8,6 +8,7 @@ import { GraphQLClient, gql, } from 'graphql-request';
 import useLocalStorage from "@/CustomHooks/UseLocalStorage";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
+import VimeoPlayer from "../VimeoComponents/VimeoPlayer";
 // import Link from "next/link";
 
 
@@ -27,28 +28,24 @@ const [possibleOptions,setPosibleOptions] = useState (["A", "B", "C", "D", "E", 
 
 const eachQuestAndFeedback =useRef([])
 
-// const client = new GraphQLClient(endpoint, {
-//   headers: {
-//     authorization: `Bearer ${token}`,
-//   },
-// });
+const client = new GraphQLClient(endpoint, {
+  headers: {
+    authorization: `Bearer ${token}`,
+  },
+});
 
-// useEffect(()=>{
-// overwriteAndPublishQuest(dataFromTypeForm);
-// },[])
+useEffect(()=>{
+overwriteAndPublishQuest(dataFromTypeForm);
+},[])
 
 useEffect(()=>{
 console.log(dataFromTypeForm);
 
 },[dataFromTypeForm])
-return (
-    <div>
-        <h1>Loading</h1>
-    </div>
-)
+
     const deleteQuestMutation = gql`
- mutation deleteGeoblockNCaseTwo($id: ID!) {
-    deleteGeoblockNCaseTwo(where: { id: $id }) {
+ mutation deleteAhusCaseFour($id: ID!) {
+    deleteAhusCaseFour(where: { id: $id }) {
       id
     }
   }
@@ -56,8 +53,8 @@ return (
 
 // Mutation to create a new entry
 const createQuestMutation = gql`
- mutation createGeoblockNCaseTwo($data: GeoblockNCaseTwoCreateInput!) {
-    createGeoblockNCaseTwo(data: $data) {
+ mutation createAhusCaseFour($data: AhusCaseFourCreateInput!) {
+    createAhusCaseFour(data: $data) {
       id
       placeholder
     }
@@ -66,8 +63,8 @@ const createQuestMutation = gql`
 
 // Mutation to publish the new entry
 const publishQuestMutation = gql`
-  mutation publishGeoblockNCaseTwo($id: ID!) {
-    publishGeoblockNCaseTwo(where: { id: $id }) {
+  mutation publishAhusCaseFour($id: ID!) {
+    publishAhusCaseFour(where: { id: $id }) {
       id
       placeholder
       publishedAt
@@ -87,7 +84,7 @@ async function tryT() {
     // const newQuest = await client.request(createQuestMutation, {
     //   fields: newData,
     // });
-    const questId = newQuest.createGeoblockNCaseTwo.id;
+    const questId = newQuest.createAhusCaseFour.id;
     console.log('New quest created:', newQuest);
 }
 // tryT()
@@ -96,8 +93,8 @@ const overwriteAndPublishQuest = async (newData) => {
   try {
     // Step 1: Query to check for existing entries
     const getExistingQuestQuery = gql`
-    query getExistingGeoblockNCaseTwos {
-   geoblockNCaseTwos {
+    query getExistingAhusCaseFours {
+   ahusCaseFours {
     id
     placeholder
     }
@@ -106,9 +103,9 @@ const overwriteAndPublishQuest = async (newData) => {
 
     const existingData = await client.request(getExistingQuestQuery);
 
-    if (existingData.geoblockNCaseTwos.length > 0) {
+    if (existingData.ahusCaseFours.length > 0) {
       // Step 2: Delete the existing quest
-      const questId = existingData.geoblockNCaseTwos[0].id;
+      const questId = existingData.ahusCaseFours[0].id;
       await client.request(deleteQuestMutation, { id: questId });
       console.log('Existing quest deleted');
     }
@@ -122,7 +119,7 @@ const overwriteAndPublishQuest = async (newData) => {
     // const newQuest = await client.request(createQuestMutation, {
     //   fields: newData,
     // });
-    const questId = newQuest.createGeoblockNCaseTwo.id;
+    const questId = newQuest.createAhusCaseFour.id;
     console.log('New quest created:', newQuest);
 
     // Step 4: Publish the new quest
@@ -133,7 +130,7 @@ const overwriteAndPublishQuest = async (newData) => {
     console.log(publishedQuest.id);
     
    setDataPosted(()=> {
-    if (publishedQuest.publishGeoblockNCaseTwo.id) {
+    if (publishedQuest.publishAhusCaseFour.id) {
       return true
     }
     else{
@@ -157,10 +154,10 @@ console.log(dataFromTypeForm);
     if (!dataPosted) {
       return
     }
-    const fetchGeoblockNCaseTwoData = async () => {
+    const fetchAhusCaseFourData = async () => {
       const query = gql`
         query {
-            geoblockNCaseTwos {
+            ahusCaseFours {
             id
             placeholder
             }
@@ -170,15 +167,15 @@ console.log(dataFromTypeForm);
       try {
         const getData = await client.request(query);
         console.log('Fetched Quest Data:', getData);
-        console.log(getData.geoblockNCaseTwos[0]);
-        setQuestionsToDisplay(getData.geoblockNCaseTwos)
+        console.log(getData.ahusCaseFours[0]);
+        setQuestionsToDisplay(getData.ahusCaseFours)
         
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-   fetchGeoblockNCaseTwoData();
+   fetchAhusCaseFourData();
   }, [dataPosted]);
 
 useEffect(()=>{
@@ -234,7 +231,7 @@ if (questionsToDisplay.length < 1) {
   <main className={"bg-[#EFEFEF] text-[#403D99]  h-[100%]"}>
 {/* scroll up and down btn */}
 
-<div className=" fixed space-x-[2px] bottom-[10%] right-[5%]">
+<div className=" fixed space-x-[2px] bottom-[10%] right-[5%] z-50">
     <button className="bg-green-800 px-4 py-2 rounded-md"
     onClick={()=>{
     if (!startQuiz) {
@@ -405,38 +402,10 @@ else if (quest.type === "multiple_choice") {
 {quest?.properties?.choices?.map((choice,choiceIndex)=>{
     
     let option = possibleOptions[choiceIndex]
-    // if (choiceIndex == 1) {
-    //     option = "B"
-    // }
-    // else if (choiceIndex === 2) {
-    //     option = "C"
-    // }
-    // else if (choiceIndex === 3) {
-    //     option = "D"
-    // }
-    // else if (choiceIndex === 4) {
-    //     option = "E"
-    // }
-    // else if (choiceIndex === 5) {
-    //     option = "F"
-    // }
-    // else if (choiceIndex === 6) {
-    //     option = "G"
-    // }
-    // else if (choiceIndex === 7) {
-    //     option = "H"
-    // }
-    
-    // else if (choiceIndex === 8) {
-    //     option = "I"
-    // }
-    // else if (choiceIndex === 9) {
-    //     option = "J"
-    // }
     
     return (
         
-        <aside key={choice.id} className={`my-2 ${choice.label.length  < 30 ? " w-[30%]" : " w-[100%]"}  rounded-sm text-start text-[0.95rem] border-[2px] border-[navy] flex items-start px-2 py-2 gap-x-2 bg-[#D7DDE8] hover:bg-[#A6BCDA]  cursor-pointer`}
+        <aside key={choice.id} className={`my-2 ${choice.label.length  < 50 ? " w-[100%]" : " w-[100%]"}  rounded-sm text-start text-[0.95rem] border-[2px] border-[navy] flex items-start px-2 py-2 gap-x-2 bg-[#D7DDE8] hover:bg-[#A6BCDA]  cursor-pointer`}
         onClick={()=>{
             if (step + 1 == questionsToDisplay[0]?.placeholder?.fields?.length) {
                 return
@@ -651,10 +620,10 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
 
 // STATEMENT
 else if (quest.type == "statement") {
- return (
-
-    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className="py-16 text-lg h-screen  overflow-y-scroll ">
-         <div className="flex flex-col items-center justify-center w-full px-64 min-h-full space-y-4"> 
+if (quest?.attachment?.type === "video") {
+    return (
+<aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className="py-16 text-lg h-screen  overflow-y-scroll flex ">
+         <div className="flex flex-col items-center justify-center w-[60%] px-12 min-h-full space-y-4 my-16"> 
 
         <header className="text-start w-full text-[0.95rem]">
         <h1 className={`${quest.title.length < 30 ? "font-bold" : ""}`}>{quest.title.replace("*","").includes("/") === true ? (
@@ -688,6 +657,59 @@ onClick={()=>{
 className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
     </div>
     </div>
+
+{/* Video */}
+   <div style={{ position: 'relative',width:"40%" }} className="flex items-center justify-center">
+
+    <VimeoPlayer  videoUrl={quest.attachment.href} /> 
+
+ 
+   </div>
+   
+    
+    </aside>
+
+    )
+}
+
+ return (
+
+    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className="py-16 text-lg h-screen  overflow-y-scroll flex ">
+         <div className="flex flex-col items-center justify-center w-[50%] px-64 min-h-full space-y-4"> 
+
+        <header className="text-start w-full text-[0.95rem]">
+        <h1 className={`${quest.title.length < 30 ? "font-bold" : ""}`}>{quest.title.replace("*","").includes("/") === true ? (
+quest.title.replace("*","").split("\n").map((ti,tiIndex)=>{
+
+    return (
+        <p className="mt-2" key={tiIndex}>{ti}</p>
+    )
+})
+        ) : (
+           quest.title.replace("*","")
+        ) }</h1>
+        <aside>{ quest.properties.description?.split("*").map((desc,descIndex)=>{
+          
+return (
+    <p key={descIndex}>{desc}</p>
+)
+
+        })}</aside>
+        </header>
+  <div className='w-full flex flex-start'>
+
+<button
+onClick={()=>{
+    if (step + 1 == questionsToDisplay[0]?.placeholder?.fields?.length) {
+        return
+    }
+    
+    setStep(prev => prev + 1)
+}}
+className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
+    </div>
+    </div>
+    
     </aside>
  )
     
@@ -698,9 +720,8 @@ else if (quest.type == "opinion_scale") {
  return (
 
        <aside  ref={el => eachQuestAndFeedback.current[index] = el}  key={quest?.id} className=" text-lg  h-screen overflow-y-scroll">
-        <div className="flex flex-col items-center justify-center w-full px-64 min-h-screen"> 
+        <div className="flex flex-col items-center justify-center w-full px-64 min-h-screen">
 
-        
 <h1 className="w-full text-start font-bold my-4" >{quest.title}</h1>
 
 <div className={`flex justify-evenly w-full`}>
