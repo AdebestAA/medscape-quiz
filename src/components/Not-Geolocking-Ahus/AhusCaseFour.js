@@ -302,7 +302,7 @@ return (
 })}
 <article className="text-[0.95rem] w-full my-2 leading-loose">{welItem.properties.description.split("\n").map((welcomeDescItem,index) =>{
 return (
-    <p className="my-2">{welcomeDescItem}</p>
+    <p className="my-2" key={index}>{welcomeDescItem}</p>
 )
 
 })}</article>
@@ -637,20 +637,20 @@ if (quest?.attachment?.type === "video") {
     <div className="overflow-y-scroll py-16">
 
         <header className="text-start w-full text-[0.95rem]">
-        <h1 className={`text-[red] ${quest.title.length < 30 ? "font-bold" : ""}`}>{quest.title.replace("*","").includes("\n") === true ? (
+        <h1 className={` ${quest.title.length < 30 ? "font-bold" : ""}`}>{quest.title.replace("*","").includes("\n") === true ? (
 quest.title.replace("*","").split("\n" || "\n\n").map((ti,tiIndex)=>{
 
     if (ti.includes("(_*") || ti.includes("_")) {
         return (
-            <p>{ti.replace("(_","").replace("_)","").replace("_","").split("*").map((linkInsideParagraph,indexLinkSideParagraph)=>{
+            <p key={tiIndex}>{ti.replace("(_","").replace("_)","").replace("_","").split("*").map((linkInsideParagraph,indexLinkSideParagraph)=>{
                 if (linkInsideParagraph.includes("http")) {
                     return(
-                        <a className="font-bold" href={linkInsideParagraph.split("](" || "(")[1].replace("[","").replace("]","").replace("(","").replace(")","")}>{linkInsideParagraph.split("](" || "(")[0].replace("[","").replace("]","").replace("(","").replace(")","")}</a>
+                        <a key={indexLinkSideParagraph} className="font-bold" href={linkInsideParagraph.split("](" || "(")[1].replace("[","").replace("]","").replace("(","").replace(")","")}>{linkInsideParagraph.split("](" || "(")[0].replace("[","").replace("]","").replace("(","").replace(")","")}</a>
                     )
                 }
 
                 return (
-                    <span>{linkInsideParagraph}</span>
+                    <span key={indexLinkSideParagraph}>{linkInsideParagraph}</span>
                 )
             })}</p>
         )
@@ -659,7 +659,7 @@ quest.title.replace("*","").split("\n" || "\n\n").map((ti,tiIndex)=>{
     if (ti.includes("http")) {
         if (ti.includes("](")) {
             return (
-               <p className="text-[red]" >{ ti.split("[").map((tiInner,tiInnerIndex)=>{
+               <p className="" key={tiIndex} >{ ti.split("[").map((tiInner,tiInnerIndex)=>{
 if (tiInner.includes("](")) {
     return <a key={tiInnerIndex} href={tiInner.split("](")[1].replace((")",""),replace("(",""))}>{tiInner.split("](")[1].replace((")",""),replace("(",""))}</a>
 }
@@ -672,18 +672,18 @@ if (tiInner.includes("](")) {
 
         }
         return (
-            <a className="underline font-bold italic "  href={ti.split("(")[1].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}>{ti.split("(")[0].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}</a>
+            <a className="underline font-bold italic " key={tiIndex} href={ti.split("(")[1].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}>{ti.split("(")[0].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}</a>
         )
     }
     return (
-        <p className={`mt-2 text-[red] ${tiIndex === 0? "font-bold" : ""}`} key={tiIndex}>{ti.split("*").map((boItem,index)=>{
+        <p className={`mt-2  ${tiIndex === 0? "font-bold" : ""}`} key={tiIndex}>{ti.split("*").map((boItem,index)=>{
 if (index % 2 == 1) {
     return (
-        <span className="font-bold">{boItem}</span>
+        <span className="font-bold" key={index}>{boItem}</span>
     )
 }
             return (
-                <span>
+                <span key={index}>
                     {boItem}
                 </span>
             )
@@ -738,38 +738,64 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
          <div className="flex flex-col items-center justify-center w-[100%]  min-h-full px-64 space-y-4 py-16"> 
 
         <header className="text-start w-full  text-[0.95rem]">
-        <h1 className={` ${quest.title.length < 30 ? "font-bold" : ""}`}>{quest.title.replace("*","").includes("\n") === true ? (
+        <h1 className={` ${quest.title.length < 30 ? "font-bold " : ""}`}>{quest.title.replace("*","").includes("\n") === true ? (
 quest.title.split("\n").map((ti,tiIndex)=>{
 
-
-  if (ti.includes("http")) {
-        if (ti.includes("](")) {
-            return (
-               <aside className="text-[red]" >{ ti.split("(").map((tiInner,tiInnerIndex)=>{
-if (tiInner.includes("http")) {
-    return (
-        <a href={tiInner.replace(")","")}>{tiInner}</a>
-    )
-}
+    if (ti.includes("(_*") || ti.includes("_") && ti.includes("http") || ti.includes("www")) {
+        return (
+            <p key={tiIndex}>{ti.replace("(_","").replace("_)","").replace("_","").split("*").map((linkInsideParagraph,indexLinkSideParagraph)=>{
+                if (linkInsideParagraph.includes("http")) {
+                    return(
+                        <a key={indexLinkSideParagraph} className="" href={linkInsideParagraph.split("](" || "(")[1].replace("[","").replace("]","").replace("(","").replace(")","")}>{linkInsideParagraph.split("](" || "(")[0].replace("[","").replace("]","").replace("(","").replace(")","")}</a>
+                    )
+                }
 
                 return (
-
-                    <span key={tiInnerIndex}>{tiInner}</span>
-
+                    <span key={indexLinkSideParagraph}>{linkInsideParagraph}</span>
                 )
-
-               })}</aside>
-            )
-
-        }
-        return (
-            <a className="underline font-bold italic "  href={ti.split("(")[1].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}>{ti.split("(")[0].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}</a>
+            })}</p>
         )
+        
     }
+
+if (ti.includes("http") || ti.includes("www")) {
+ 
+return  (
+    <article key={tiIndex}>
+        {ti.split("[").map((sepItem,sepItemIndex)=>{
+
+if (sepItem.includes("www") || sepItem.includes("http")) {
+    return (
+        <span key={sepItemIndex}>{sepItem.split("]").map((pasteLink,pasteLinkIndex)=>{
+if (pasteLinkIndex !== 0) {
+    return <span key={pasteLinkIndex} ></span>
+}
+
+            return(
+                <a href={pasteLink} key={pasteLinkIndex}>{pasteLink}</a>
+            )
+        })}</span>
+    )
+}
+return (
+    <span key={sepItemIndex}>{sepItem}</span>
+)
+
+        })}
+    </article>
+)
+
+        // return (
+        //     <a className="underline font-bold italic "  href={ti.split("(")[1].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}>{ti.split("(")[0].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}</a>
+        // )
+    }
+
+
+  
 
 if (ti.includes("https")) {
    return (
-            <a className="underline font-bold italic" href={ti.split("(")[1].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}>{ti.split("(")[0].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}</a>
+            <a className="underline font-bold italic" key={tiIndex} href={ti.split("(")[1].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}>{ti.split("(")[0].replace("[","").replace("]","").replace("_","").replace(")","").replace("*","")}</a>
         )
 }
 
@@ -777,11 +803,11 @@ if (ti.includes("https")) {
         <p className="mt-2" key={tiIndex}>{ti.split("*").map((tipText,tipIndex)=>{
 if (tipIndex % 2 == 1) {
     return (
-        <span className="font-bold">{tipText}</span>
+        <span className="font-bold " key={tipIndex}>{tipText}</span>
     )
 }
 return (
-    <span >{tipText}</span>
+    <span key={tipIndex}>{tipText}</span>
 )
         })}</p>
     )
@@ -792,7 +818,7 @@ return (
         <aside>{ quest.properties.description?.split("*").map((desc,descIndex)=>{
           if (descIndex % 2 == 1 ) {
             return (
-                <span className="font-bold">
+                <span className="font-bold" key={descIndex}>
                     {desc}
                 </span>
             )
