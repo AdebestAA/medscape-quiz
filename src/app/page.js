@@ -178,7 +178,17 @@ const surveyInfos = [
   },
   {
     id:"31",
-    name:"Ahus case 4 {still working on it}",
+    name:"Ahus case 4",
     link:"/ahus-case-four"
+  },
+  {
+    id:"32",
+    name:"Ahus case 3",
+    link:"/ahus-case-three"
+  },
+  {
+    id:"33",
+    name:"Ahus case 3",
+    link:"/ahus-case-two"
   },
 ]
