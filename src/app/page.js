@@ -191,4 +191,84 @@ const surveyInfos = [
     name:"Ahus case 3",
     link:"/ahus-case-two"
   },
+  {
+    id:"34",
+    name:"Multiple Myeloma",
+    link:"/multiple-myeloma"
+  },
+  {
+    id:"35",
+    name:"COPD",
+    link:"/copd"
+  },
+  {
+    id:"36",
+    name:"Ulcerative Colitis",
+    link:"/ulcerative-colitis"
+  },
+  {
+    id:"37",
+    name:"Waldenström Macroglobulinaemia",
+    link:"/waldenstrom-macro"
+  },
+  {
+    id:"38",
+    name:"Refractory Epilepsy",
+    link:"/refractory-epilepsy"
+  },
+  {
+    id:"39",
+    name:"Primary Myelofibrosis",
+    link:"/primary-myelofibrosis"
+  },
+  {
+    id:"40",
+    name:"Postpartum Hemorrhage",
+    link:"/postpartum-hemorrhage"
+  },
+  {
+    id:"41",
+    name:"Delete Dup",
+    link:"/delete-dup"
+  },
+  {
+    id:"42",
+    name:"Hemophilia",
+    link:"/hemophilia"
+  },
+  {
+    id:"43",
+    name:"Trauma Surgery (not Done)",
+    link:"/trauma-surgery"
+  },
+  {
+    id:"44",
+    name:"Epilepsy",
+    link:"/epilepsy"
+  },
+  {
+    id:"45",
+    name:"Paracentesis",
+    link:"/paracentesis"
+  },
+  {
+    id:"46",
+    name:"Paracentesis CN",
+    link:"/paracentesis-cn"
+  },
+  {
+    id:"47",
+    name:"Intracranial Haemorrhage",
+    link:"/intracranial-haemorrhage"
+  },
+  {
+    id:"48",
+    name:"Intracranial Hemorrhage Jp",
+    link:"/intracranial-hemorrhage-jp"
+  },
+  {
+    id:"49",
+    name:"Hypothyroidism",
+    link:"/hypothyroidism"
+  },
 ]
