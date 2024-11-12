@@ -493,7 +493,7 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
 <h1 className="w-full text-start my-4 flex" ><span className="">{index + 1}</span> <span className="h-[30px] flex items-center"><IoIosArrowRoundForward /></span> <span>{quest.title.split("*").map((qItem,qItemIndex)=>{
     if (qItemIndex % 2 == 1 )  {
         if (qItem.includes("http")) {
-             return <a href={qItem.split("(")[1].replace("(","").replace(")","").replace("[").replace("]","")} className="font-bold">{qItem.split("(")[0]?.replace("(","")?.replace(")","").replace("[","").replace("]","")}</a>
+             return <a href={qItem.split("(")[1].replace("(","").replace(")","").replace("[").replace("]","")} className="font-bold" key={qItemIndex}>{qItem.split("(")[0]?.replace("(","")?.replace(")","").replace("[","").replace("]","")}</a>
         }
         return <span className="font-semibold" key={qItemIndex}>{qItem}</span>
     }
