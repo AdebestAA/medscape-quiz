@@ -271,4 +271,79 @@ const surveyInfos = [
     name:"Hypothyroidism",
     link:"/hypothyroidism"
   },
+  {
+    id:"50",
+    name:"CKD MBD",
+    link:"/ckd-mbd"
+  },
+  {
+    id:"51",
+    name:"Hypoparathyroidism",
+    link:"/hypoparathyroidism"
+  },
+  {
+    id:"52",
+    name:"Hypoalbuminemia Cardiovascular ",
+    link:"/hypoalbuminemia-cardiovascular"
+  },
+  {
+    id:"53",
+    name:"Hypoalbuminemia-One",
+    link:"/hypoalbuminemia-one"
+  },
+  {
+    id:"54",
+    name:"Hypoalbuminemia-Two",
+    link:"/hypoalbuminemia-two"
+  },
+  {
+    id:"55",
+    name:"Hypoalbuminemia CN",
+    link:"/hypoalbuminemia-three"
+  },
+  {
+    id:"56",
+    name:"IGAN post-test",
+    link:"/igan-post-test"
+  },
+  {
+    id:"57",
+    name:"Skin Cancer Geoblock",
+    link:"/skin-cancer-geoblock"
+  },
+  {
+    id:"58",
+    name:"HIV",
+    link:"/hiv"
+  },
+  {
+    id:"59",
+    name:"Skin Cancer Webhook",
+    link:"/skin-cancer-webhook"
+  },
+  {
+    id:"60",
+    name:"Skin Cancer Case Four",
+    link:"/skin-cancer-case-four"
+  },
+  {
+    id:"61",
+    name:"Skin Cancer Case Three",
+    link:"/skin-cancer-case-three"
+  },
+  {
+    id:"62",
+    name:"Skin Cancer Case Two",
+    link:"/skin-cancer-case-two"
+  },
+  {
+    id:"63",
+    name:"Skin Cancer Case One",
+    link:"/skin-cancer-case-one"
+  },
+  {
+    id:"64",
+    name:"Amyloidosis",
+    link:"/amyloidosis"
+  },
 ]
