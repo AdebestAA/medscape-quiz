@@ -346,4 +346,84 @@ const surveyInfos = [
     name:"Amyloidosis",
     link:"/amyloidosis"
   },
+  {
+    id:"65",
+    name:"Lymphoma Geoblock",
+    link:"/lymphoma-geoblock"
+  },
+  {
+    id:"66",
+    name:"Crohn's Diseases",
+    link:"/crohn-diseases"
+  },
+  {
+    id:"67",
+    name:"Heart Failure",
+    link:"/heart-failure"
+  },
+  {
+    id:"68",
+    name:"Choroidal Neovascularization",
+    link:"/choroidal-neovascularization"
+  },
+  {
+    id:"69",
+    name:"Pompe Disease Webhook",
+    link:"/pompe-disease-webhook"
+  },
+  {
+    id:"70",
+    name:"Pompe Disease",
+    link:"/pompe-disease"
+  },
+  {
+    id:"71",
+    name:"Fibry Disease Webhooks",
+    link:"/fibry-disease-webhook"
+  },
+  {
+    id:"72",
+    name:"Crohn's Disease Post Test",
+    link:"/crohn-disease-post-test"
+  },
+  {
+    id:"73",
+    name:"Fibry Disease",
+    link:"/fibry-disease"
+  },
+  {
+    id:"74",
+    name:"ADPKD",
+    link:"/adpkd"
+  },
+  {
+    id:"75",
+    name:"Atopic Dermatitis",
+    link:"/atopic-dermatitis"
+  },
+  {
+    id:"76",
+    name:"Leukemia Webhooks",
+    link:"/leukemia-webhooks"
+  },
+  {
+    id:"77",
+    name:"ASMD",
+    link:"/asmd"
+  },
+  {
+    id:"78",
+    name:"Leukaemia",
+    link:"/leukaemia"
+  },
+  {
+    id:"79",
+    name:"LymphomaCaseOne",
+    link:"/lymphoma-case-one"
+  },
+  {
+    id:"80",
+    name:"Lymphoma Webhooks",
+    link:"/lymphoma-webhooks"
+  },
 ]
