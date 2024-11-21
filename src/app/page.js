@@ -9,7 +9,7 @@ export default function Home() {
 
 <h1 className="italic underline font-semibold text-lg mt-4">Surveys [{surveyInfos.length}]</h1>
 <div className="w-full">
-{surveyInfos.map((item,index)=>{
+{surveyInfos.reverse().map((item,index)=>{
 
   return (
     <Link key={index} href={item.link} className="border-navy flex items-center w-[90%] bg-white rounded-lg mx-auto my-4 py-2 border-[1px] border-[gray] shadow-md cursor-pointer hover:shadow-lg">
@@ -425,5 +425,105 @@ const surveyInfos = [
     id:"80",
     name:"Lymphoma Webhooks",
     link:"/lymphoma-webhooks"
+  },
+  {
+    id:"81",
+    name:"Leukemia",
+    link:"/leukemia"
+  },
+  {
+    id:"82",
+    name:"Lymphoma Case 2",
+    link:"/lymphoma-case-two"
+  },
+  {
+    id:"83",
+    name:"Hepatitis",
+    link:"/hepatitis"
+  },
+  {
+    id:"84",
+    name:"Anticoagulation",
+    link:"/anticoagulation"
+  },
+  {
+    id:"85",
+    name:"AATD Webhooks",
+    link:"/aatd-webhooks"
+  },
+  {
+    id:"86",
+    name:"AATD",
+    link:"/aatd"
+  },
+  {
+    id:"87",
+    name:"Coagulopathy",
+    link:"/coagulopathy"
+  },
+  {
+    id:"88",
+    name:"Postpartum haemorrhage",
+    link:"/postpartum-haemorrhage"
+  },
+  {
+    id:"89",
+    name:"AL amyloidosis Webhooks",
+    link:"/al-amyloidosis-webhooks"
+  },
+  {
+    id:"90",
+    name:"AL amyloidosis",
+    link:"/al-amyloidosis"
+  },
+  {
+    id:"91",
+    name:"Coagulation",
+    link:"/coagulation"
+  },
+  {
+    id:"92",
+    name:"Transfusional",
+    link:"/transfusional"
+  },
+  {
+    id:"93",
+    name:"Prostate Cancer Webhooks",
+    link:"/prostate-cancer-webhooks"
+  },
+  {
+    id:"94",
+    name:"Prostate Cancer",
+    link:"/prostate-cancer"
+  },
+  {
+    id:"95",
+    name:"Polycythemia Vera Webhooks",
+    link:"/polycythemia-vera-webhooks"
+  },
+  {
+    id:"96",
+    name:"Polycythemia Vera",
+    link:"/polycythemia-vera"
+  },
+  {
+    id:"97",
+    name:"Polycythemia Vera MPNs Webhooks",
+    link:"/polycythemia-vera-mpns-webhooks"
+  },
+  {
+    id:"98",
+    name:"Polycythemia Vera MPNs",
+    link:"/polycythemia-vera-mpns"
+  },
+  {
+    id:"99",
+    name:"Bladder Cancer Webhooks",
+    link:"/bladder-cancer-webhooks"
+  },
+  {
+    id:"100",
+    name:"Bladder Cancer",
+    link:"/bladder-cancer"
   },
 ]
