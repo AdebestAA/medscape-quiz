@@ -526,4 +526,154 @@ const surveyInfos = [
     name:"Bladder Cancer",
     link:"/bladder-cancer"
   },
+  {
+    id:"101",
+    name:"Hepatocellular Carcinoma Webhooks",
+    link:"/hepatocellular-carcinoma-webhooks"
+  },
+  {
+    id:"102",
+    name:"Hepatocellular Carcinoma",
+    link:"/hepatocellular-carcinoma"
+  },
+  {
+    id:"103",
+    name:"Hemophilia Webhooks",
+    link:"/hemophilia-webhooks"
+  },
+  {
+    id:"104",
+    name:"Hemophilia Case 1",
+    link:"/hemophilia-case-one"
+  },
+  {
+    id:"105",
+    name:"Myelodysplastic Syndrome Webhooks",
+    link:"/myelodysplastic-syndrome-webhooks"
+  },
+  {
+    id:"106",
+    name:"Hematopoietic stem-cell transplantation ",
+    link:"/hematopoietic-stem-cell-transplantation"
+  },
+  {
+    id:"107",
+    name:"Lymphoma",
+    link:"/lymphoma"
+  },
+  {
+    id:"108",
+    name:"CLL Webhooks",
+    link:"/cll-webhooks"
+  },
+  {
+    id:"109",
+    name:"CLL ",
+    link:"/cll"
+  },
+  {
+    id:"110",
+    name:"Breast Cancer Webhooks ",
+    link:"/breast-cancer-webhooks"
+  },
+  {
+    id:"111",
+    name:"Breast Cancer",
+    link:"/breast-cancer"
+  },
+  {
+    id:"112",
+    name:"PNH Webhooks",
+    link:"/pnh-webhooks"
+  },
+  {
+    id:"113",
+    name:"PSORIATIC Diseases Webhooks",
+    link:"/psoriatic-diseases-webhooks"
+  },
+  {
+    id:"114",
+    name:"Cardiac Surgery Webhooks",
+    link:"/cardiac-surgery-webhooks"
+  },
+  {
+    id:"115",
+    name:"ATTP Webhooks",
+    link:"/attp-webhooks"
+  },
+  {
+    id:"116",
+    name:"Lymphoma Webhooks chemoimmunotherapy",
+    link:"/lymphoma-webhooks-chemo"
+  },
+  {
+    id:"117",
+    name:"Cytomegalovirus Webhook",
+    link:"/cytomegalovirus-webhook"
+  },
+  {
+    id:"118",
+    name:"Leukemia 61 years-old",
+    link:"/leukemia-sixty-one-year"
+  },
+  {
+    id:"119",
+    name:"Lymphoma 66 years-old",
+    link:"/lymphoma-sixty-six-year"
+  },
+  {
+    id:"120",
+    name:"Leukemia 9 years-old",
+    link:"/leukemia-nine-year"
+  },
+  {
+    id:"121",
+    name:"NSCLC Webhooks",
+    link:"/nsclc-webhooks"
+  },
+  {
+    id:"122",
+    name:"NSCLC",
+    link:"/nsclc"
+  },
+  {
+    id:"123",
+    name:"GVHD webhooks",
+    link:"/gvhd-webhooks"
+  },
+  {
+    id:"124",
+    name:"GVHD ",
+    link:"/gvhd"
+  },
+  {
+    id:"125",
+    name:"spinal muscular atrophy webhooks ",
+    link:"/spinal-muscular-atrophy-webhooks"
+  },
+  {
+    id:"126",
+    name:"spinal muscular atrophy",
+    link:"/spinal-muscular-atrophy"
+  },
+  {
+    id:"127",
+    name:"Heart Failure and Iron Deficiency webhooks",
+    link:"/hfaidw"
+  },
+  {
+    id:"128",
+    name:"Heart Failure and Iron Deficiency",
+    link:"/hfaid"
+  },
+  {
+    id:"129",
+    name:"influenza webhooks",
+    link:"/influenza-webhooks"
+  },
+  {
+    id:"130",
+    name:"lung cancer webhooks",
+    link:"/lung-cancer-webhooks"
+  },
 ]
