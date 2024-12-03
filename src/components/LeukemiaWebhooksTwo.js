@@ -1,5 +1,5 @@
 "use client"
-// formFromTypeform 6
+// formFromTypeform 8
 import { redirect } from "next/dist/server/api-utils";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -13,11 +13,11 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 // import Link from "next/link";
 
 
-const endpoint = "https://eu-west-2.cdn.hygraph.com/content/cm3z5pml9015h07upn1uf1j7w/master";
-const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE3MzI3MTQ4MjIsImF1ZCI6WyJodHRwczovL2FwaS1ldS13ZXN0LTIuaHlncmFwaC5jb20vdjIvY20zejVwbWw5MDE1aDA3dXBuMXVmMWo3dy9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC1ldS13ZXN0LTIuaHlncmFwaC5jb20vIiwic3ViIjoiNGIzODQ3M2QtZjc2ZS00NWVjLWJkNGEtMzFjZjdhYmNkYzg2IiwianRpIjoiY20zenhvMXRlMGY4MDA3bDhmcTVkY2poMSJ9.jtx8in3exZf3ZAVnta7DlmbevUbxchP9dJYezfb8orH2o-DJkWQ1qThkwb7T0pOBQe5F4xoSBvV0wZhoK0g-ZdAPZ2wCxEDNUTgsYo3dXLMjohZP0dsYK5WIOBzX70MqMSqvaljk6oZQA1aSdQ9GBGTs39uc_-d8SHMSXjWubIXNtCQDT1MiRbetGmVZcOzXObtkLFIxiQq5Qfi1sOEgNGpbo77-M3pGsyWd1gokl3gHWhyq2QeF60_Rs9trzksCJA86zrbF2rBYCnu51mnHvY46W8T3iCPs02oZAUz3Aw9qtgOn6EOLNDhACoDpSRT74UVqmPipVxyU2ZcsdIVBV9vtlwMRe05Mi92gM3m1IMDZyqNDFnbV1oGaxYqsVFVQctyOWd_cBm6arjctdskTF5J1UJpThjIt6TzxS2eRRhe9ND9cIlL0fZLSiC_MZZenQ5vnq8qriznRVZrVTjBnS5BuNCCdseAnSYx8v9mv6uzkIgK2fFOpyM_-1MdrqFdCMtO9wCiekcLRqlMyg84CCWArQ7pEKbsILPMK_qctQFXVM4x0eHMxNAWP1ZFSRGWj9zammSVbhIUwAav5B9xjFTM-jau5nXxwL_BmkTGMaI8Tci-l-XiZKYB5Rdq3RMxY02xAoOhDBnkDAcnoxfgrH-Z6cp6NrYX2IPVAbLWi4mE"
+const endpoint = "https://eu-west-2.cdn.hygraph.com/content/cm46u52my045u07uwdxi1u2ep/master";
+const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE3MzMxMzk4NjMsImF1ZCI6WyJodHRwczovL2FwaS1ldS13ZXN0LTIuaHlncmFwaC5jb20vdjIvY200NnU1Mm15MDQ1dTA3dXdkeGkxdTJlcC9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC1ldS13ZXN0LTIuaHlncmFwaC5jb20vIiwic3ViIjoiZmVjNDVmOWItODlmMy00NmMyLThhZWMtYmY5NTY0NTNkMTZiIiwianRpIjoiY200NnlxNTJ3MHh6azA3bDZkNTZqM2UxbCJ9.R6ZRFQlT8e4k4cyBcKmXZJQ0MYASAWE076foIQTCe8aaKzO4zhiJlJ5NG795eRpFCUmevxHIjaW4f2j0udWiqGHx5JN9Y6cNFtllaLfa6n1ugDpamPLoHTDaSXxyclMPe-I3y6stgS4SgJyBd1Jxk9D6DipOc8laXWEHH3kc6kBXZuKEJQSFz8CC16DZaQSIMJD17_MqXjwcjW9tTjAAW0Y6zr3j9297o8CdPF22FJVDOl4EOkXxj-EmARKWUEnAX8CIJQwQUmnX65JwsE1trV5SoXUNDZXn_XRdCec_oI3Knt4LVk_gqePGrHljUouD2-1dpiyz79JtJctuJPVxPcEcxsEn0wzw9Mx2LeWo4ow3uZ4T85bHqWGsVUchFN25C63INw66vhYIPrMZOTiAzyTtHN4aMY6ebYAxffOhbISFNSVhya26bS8JiSvf9AyDJ18pMPHIAT9nPONI0HndUWQOKw-qxck1l09pOMRFbnhAPpi-xIozhe6NB-mYMzMXS3fL7X5ADlE6IlUXSMMKBgS-pVWhtkdXqxebPpihhbsSMnAdBG-PjEaUnyTbNHwdng2tizx5D9narp22zYY7MUpkxzNv_ipPxfuNXcdjvi8qDueIeLjmknD10Gb9qmryMvJITq_Z6m7GJlJtp0T6FjQFdJOU8FuiXRj-hgyODg4"
 
 
-const Nsclc = ({dataFromTypeForm}) => {
+const LeukemiaWebhooksTwo = ({dataFromTypeForm}) => {
 const [typeformData,setTypeFromData] = useState(dataFromTypeForm)
 // const [storeData] = useLocalStorage(typeformData || [])
 const [dataPosted,setDataPosted] = useState(false)
@@ -45,8 +45,8 @@ console.log(dataFromTypeForm);
 },[dataFromTypeForm])
 
     const deleteQuestMutation = gql`
- mutation deleteNsclc($id: ID!) {
-    deleteNsclc(where: { id: $id }) {
+ mutation deleteLeukemiaWebhooksTwo($id: ID!) {
+    deleteLeukemiaWebhooksTwo(where: { id: $id }) {
       id
     }
   }
@@ -54,8 +54,8 @@ console.log(dataFromTypeForm);
 
 // Mutation to create a new entry
 const createQuestMutation = gql`
- mutation createNsclc($data: NsclcCreateInput!) {
-    createNsclc(data: $data) {
+ mutation createLeukemiaWebhooksTwo($data: LeukemiaWebhooksTwoCreateInput!) {
+    createLeukemiaWebhooksTwo(data: $data) {
       id
       placeholder
     }
@@ -64,8 +64,8 @@ const createQuestMutation = gql`
 
 // Mutation to publish the new entry
 const publishQuestMutation = gql`
-  mutation publishNsclc($id: ID!) {
-    publishNsclc(where: { id: $id }) {
+  mutation publishLeukemiaWebhooksTwo($id: ID!) {
+    publishLeukemiaWebhooksTwo(where: { id: $id }) {
       id
       placeholder
       publishedAt
@@ -85,7 +85,7 @@ async function tryT() {
     // const newQuest = await client.request(createQuestMutation, {
     //   fields: newData,
     // });
-    const questId = newQuest.createNsclc.id;
+    const questId = newQuest.createLeukemiaWebhooksTwo.id;
     console.log('New quest created:', newQuest);
 }
 // tryT()
@@ -94,8 +94,8 @@ const overwriteAndPublishQuest = async (newData) => {
   try {
     // Step 1: Query to check for existing entries
     const getExistingQuestQuery = gql`
-    query getExistingNsclcs {
-   nsclcs {
+    query getExistingLeukemiaWebhooksTwos {
+   leukemiaWebhooksTwos {
     id
     placeholder
     }
@@ -104,9 +104,9 @@ const overwriteAndPublishQuest = async (newData) => {
 
     const existingData = await client.request(getExistingQuestQuery);
 
-    if (existingData.nsclcs.length > 0) {
+    if (existingData.leukemiaWebhooksTwos.length > 0) {
       // Step 2: Delete the existing quest
-      const questId = existingData.nsclcs[0].id;
+      const questId = existingData.leukemiaWebhooksTwos[0].id;
       await client.request(deleteQuestMutation, { id: questId });
       console.log('Existing quest deleted');
     }
@@ -120,7 +120,7 @@ const overwriteAndPublishQuest = async (newData) => {
     // const newQuest = await client.request(createQuestMutation, {
     //   fields: newData,
     // });
-    const questId = newQuest.createNsclc.id;
+    const questId = newQuest.createLeukemiaWebhooksTwo.id;
     console.log('New quest created:', newQuest);
 
     // Step 4: Publish the new quest
@@ -131,7 +131,7 @@ const overwriteAndPublishQuest = async (newData) => {
     console.log(publishedQuest.id);
     
    setDataPosted(()=> {
-    if (publishedQuest.publishNsclc.id) {
+    if (publishedQuest.publishLeukemiaWebhooksTwo.id) {
       return true
     }
     else{
@@ -155,10 +155,10 @@ console.log(dataFromTypeForm);
     if (!dataPosted) {
       return
     }
-    const fetchNsclcData = async () => {
+    const fetchLeukemiaWebhooksTwoData = async () => {
       const query = gql`
         query {
-            nsclcs {
+            leukemiaWebhooksTwos {
             id
             placeholder
             }
@@ -168,15 +168,15 @@ console.log(dataFromTypeForm);
       try {
         const getData = await client.request(query);
         console.log('Fetched Quest Data:', getData);
-        console.log(getData.nsclcs[0]);
-        setQuestionsToDisplay(getData.nsclcs)
+        console.log(getData.leukemiaWebhooksTwos[0]);
+        setQuestionsToDisplay(getData.leukemiaWebhooksTwos)
         
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-   fetchNsclcData();
+   fetchLeukemiaWebhooksTwoData();
   }, [dataPosted]);
 
 useEffect(()=>{
@@ -301,7 +301,7 @@ return (
 )
 
 })}
-<article className="text-[0.95rem] w-full my-2 leading-loose">{welItem.properties?.description?.split("\n").map((welcomeDescItem,index) =>{
+<article className="text-[0.95rem] w-full my-2  leading-loose">{welItem.properties?.description?.split("\n").map((welcomeDescItem,index) =>{
 return (
     <p className="my-2 " onClick={()=> console.log(welcomeDescItem.split("*"))} key={index}>{welcomeDescItem.trim().split("*").map((z,zIndex)=>{
 if (zIndex % 2 == 1 ) {
@@ -310,7 +310,18 @@ if (zIndex % 2 == 1 ) {
     }
     return <span key={zIndex} className="font-bold">{z}</span>
 }
-return <span key={zIndex}>{z}</span>
+return <span key={zIndex} className="">{z.split("_[").map((zp,zpIndex)=>{
+if (zp.includes("www") || zp.includes("http")) {
+    
+    return (
+        <a key={zpIndex} href={zp.split("](")[1].replace("(","").replace(")","").replace("[").replace("]","").replace("_","")}>{zp.split("](")[0].replace("(","").replace(")","").replace("[").replace("]","").replace("_","")}</a>
+    )
+}
+    return (
+<span key={zpIndex}>{zp}</span>
+
+    )
+})}</span>
 
     })}</p>
 )
@@ -1148,4 +1159,4 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
   )
 }
 
-export default Nsclc
+export default LeukemiaWebhooksTwo

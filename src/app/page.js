@@ -7,7 +7,9 @@ export default function Home() {
 <div className="flex flex-col justify-center items-center">
 
 
-<h1 className="italic underline font-semibold text-lg mt-4">Surveys [{surveyInfos.length}]</h1>
+<h1 className="italic underline font-semibold text-lg mt-4">Surveys 
+  [{surveyInfos.length}]
+  </h1>
 <div className="w-full">
 {surveyInfos.reverse().map((item,index)=>{
 
@@ -675,5 +677,160 @@ const surveyInfos = [
     id:"130",
     name:"lung cancer webhooks",
     link:"/lung-cancer-webhooks"
+  },
+  {
+    id:"131",
+    name:"Lung Cancer",
+    link:"/lung-cancer"
+  },
+  {
+    id:"132",
+    name:"Osteoporosis Webhooks",
+    link:"/osteoporosis-webhooks"
+  },
+  {
+    id:"133",
+    name:"Osteoporosis",
+    link:"/osteoporosis"
+  },
+  {
+    id:"134",
+    name:"Hemophilia challenges",
+    link:"/hemophilia-challenges"
+  },
+  {
+    id:"135",
+    name:"Gaucher Disease",
+    link:"/gaucher-disease"
+  },
+  {
+    id:"136",
+    name:"Non-small cell lung cancer (NSCLC)",
+    link:"/non-small-cell-lung-cancer"
+  },
+  {
+    id:"137",
+    name:"Parkinson's",
+    link:"/parkinson"
+  },
+  {
+    id:"138",
+    name:"Immunodeficiency",
+    link:"/immunodeficiency"
+  },
+  {
+    id:"139",
+    name:"Diabetic Retinopathy",
+    link:"/diabetic-retinopathy"
+  },
+  {
+    id:"140",
+    name:"Gaucher Disease Webhooks",
+    link:"/gaucher-disease-webhooks"
+  },
+  {
+    id:"141",
+    name:"NSCLC Webhooks II",
+    link:"/nsclc-webhooks-two"
+  },
+  {
+    id:"142",
+    name:"Parkinson's Webhooks",
+    link:"/parkinson-webhooks"
+  },
+  {
+    id:"143",
+    name:"Immunodeficiency Webhooks",
+    link:"/immunodeficiency-webhooks"
+  },
+  {
+    id:"144",
+    name:"Diabetic Retinopathy Webhooks",
+    link:"/diabetic-retinopathy-webhooks"
+  },
+  {
+    id:"145",
+    name:"Myasthenia gravis",
+    link:"/myasthenia-gravis"
+  },
+  {
+    id:"146",
+    name:"Myasthenia Gravis webhooks",
+    link:"/myasthenia-gravis-webhooks"
+  },
+  {
+    id:"147",
+    name:"Leukemia Webhooks II",
+    link:"/leukemia-webhooks-two"
+  },
+  {
+    id:"148",
+    name:"Influenza Webhooks II",
+    link:"/influenza-webhooks-two"
+  },
+  {
+    id:"149",
+    name:"Breast Cancer Webhooks II",
+    link:"/breast-cancer-webhooks-two"
+  },
+  {
+    id:"150",
+    name:"Lymphoma webhooks II",
+    link:"/lymphoma-webhooks-two"
+  },
+  {
+    id:"151",
+    name:"Acute Myeloid Leukaemia Webhooks",
+    link:"/acute-myeloid-leukaemia-webhooks"
+  },
+  {
+    id:"152",
+    name:"Webhooks",
+    link:"/webhooks"
+  },
+  {
+    id:"153",
+    name:"Lymphoma webhooks III",
+    link:"/lymphoma-webhooks-three"
+  },
+  {
+    id:"154",
+    name:"aTTP",
+    link:"/attp"
+  },
+  {
+    id:"155",
+    name:"Lymphoma II",
+    link:"/lymphoma-two"
+  },
+  {
+    id:"156",
+    name:"aHUS Webhooks",
+    link:"/ahus-webhooks"
+  },
+  {
+    id:"157",
+    name:"aHUS Case 1",
+    link:"/ahus-case-one"
+  },
+  {
+    id:"158",
+    name:"Hypertrophic Cardiomyopathy",
+    link:"/hypertrophic-cardiomyopathy"
+  },
+  {
+    id:"159",
+    name:"IgAN Webhooks",
+    link:"/igan-webhooks"
+  },
+  {
+    id:"160",
+    name:"Crohn's Disease II",
+    link:"/crohn-diseases-two"
+  },
+    {
+    id:"161",
+    name:"Cytomegalovirus Webhook II",
+    link:"/cytomegalovirus-webhook-two"
   },
 ]
