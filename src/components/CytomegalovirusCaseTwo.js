@@ -1,5 +1,5 @@
 "use client"
-// formFromTypeform 9
+// formFromTypeform 10
 import { redirect } from "next/dist/server/api-utils";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -13,11 +13,11 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 // import Link from "next/link";
 
 
-const endpoint = "https://eu-west-2.cdn.hygraph.com/content/cm47eibia01nt07waw1ifa6fd/master";
-const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE3MzMyMjI5ODAsImF1ZCI6WyJodHRwczovL2FwaS1ldS13ZXN0LTIuaHlncmFwaC5jb20vdjIvY200N2VpYmlhMDFudDA3d2F3MWlmYTZmZC9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC1ldS13ZXN0LTIuaHlncmFwaC5jb20vIiwic3ViIjoiNGU3MWQ5MjEtNjhhNC00OGI4LWFjOTYtNDAzMjk0MWQ0MWQ2IiwianRpIjoiY200OGM3bjRuMDE4aDA3bWlmb3h4NmQ4ZSJ9.lPs3hseUWPjTbHCFjL3PmLwDx4Mw3d9vz-eczKV0FN9zJzjj4rj4dLF8UgWEvnZceeoOvooiyn1kxoMyrx036J9raJz0KBh8qw4g7C_DW3vWPTpY3FzGujlGI33WtrqmGRmCiEzwVNvxDL79T7dX3O9KQtgoWh_SELQ4KXYeW7TZ4HVZX06Q1_0xw3gHUEvmYzEni7Qs5zsoCu9Cw7PBsH2YiHTID3DenIyOuDugXczRaqjyMRhFEKEFcmr_3uQW2pzivazvCGl9_QBrNsdli4b4UF2UVW6L_U7XSLusUX-p2IiPzokK4o0dD0_rOT2sy8_Ldor2QIbIEQhIcOBipa3RejAY1ZN8LmlBVBME1q0mggb9Wdp_yJoDhfdMnWYkiXRqgp7b5ejNpACM2lS8NpbSwBDqKFk8mAcs4beehB4Xrmj50CIR99x4kxc0q-WwTF1KLuTjXv27tUjoluJvXd0O36-SAVpyXllZ5NiH6G9z-NfzZaKsc7BD0UEWCabUjmXxRxmMoyh1ksuCY-6Jt21CI_MhEci19tsQ0QXCaNTZDaBlZTxMgEFznW8UEYjVSukulgmQSp-yKYk6OK550CARsePVg69uZG63SZ20ao8n2NQwoBr_1nYQCl7QaydqxJroKW8bxOMHuzehcQrGiI1h0TbONUeo42n1eCoz1lE"
+const endpoint = "https://eu-west-2.cdn.hygraph.com/content/cm4918axh01hm07uzlbxh6b5i/master";
+const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE3MzMzMTg2ODUsImF1ZCI6WyJodHRwczovL2FwaS1ldS13ZXN0LTIuaHlncmFwaC5jb20vdjIvY200OTE4YXhoMDFobTA3dXpsYnhoNmI1aS9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC1ldS13ZXN0LTIuaHlncmFwaC5jb20vIiwic3ViIjoiYjFjNWI1Y2EtN2Y1Yy00NGIzLTljNDItODNlYjdmMjZhMzljIiwianRpIjoiY200OXg2eDd3MDN3NDA3bWc5YnU4MXRqYyJ9.qMDABwZe7-94L2xaFPssST-Uu0jMvL_hhXrAKfbUcD8c1e6l8C1Gqyemd32Zkc62OjwcMHYfCdtQA1XPgFGH0hxV3IGcIHIJsa8pnEV7r9v7qfCubqM_7SCQVSSfcFL_BRhXt3RRWvVs-9BkPiR-nzY28e97606Y15h-vyIRM3g3lL1PwzPyqfaqc0myFh_VqVBTHTlq-7aTONn9IU8AjUNWb_hXaD7IK5ZtEp97db-ymLoEpRe2beODTNruhJN3Yp0vkHRUJCaIYstIiFpN9Y_lquwcmgPwKScyLxENZZ51kxbhAi4xuBTBxCZ5xcF9bZ_eCuXdRoraxB2_bXtVA9ydrWfT9pxIBJeXsgeb7uk28wmhkoRdi_Fp742T6lfm8e2dWjAJ7Rffo5qFU2orp4Zy3GXBfBH3MoHxR6nK-MS9OaKk56k6RKfJEU7sLIc91EY-jDf8XkuuDbinqPJtqtYIkoyl8ppLIdFtwCv_-oMnTFf1v_medxrRVO8J6AN8LyDN2uPKm9dEbrAxHaQ0VEfFqDv4Z5AqsXb12BIMq7zZ4xTOnoFmQjO6KkYDG9RVjk2yciT0Dxlrnt4uBr4fPz2fTgepNR2dvBPjr6M4NxJZ83ecm-JAQUb7jYgehvMe5ETqe36Du1xu0OLWBm6yRdecKfBgca7sAwR3Hy2jtVM"
 
 
-const IganWebhooks = ({dataFromTypeForm}) => {
+const CytomegalovirusCaseTwo = ({dataFromTypeForm}) => {
 const [typeformData,setTypeFromData] = useState(dataFromTypeForm)
 // const [storeData] = useLocalStorage(typeformData || [])
 const [dataPosted,setDataPosted] = useState(false)
@@ -45,8 +45,8 @@ console.log(dataFromTypeForm);
 },[dataFromTypeForm])
 
     const deleteQuestMutation = gql`
- mutation deleteIganWebhook($id: ID!) {
-    deleteIganWebhook(where: { id: $id }) {
+ mutation deleteCytomegalovirusCaseTwo($id: ID!) {
+    deleteCytomegalovirusCaseTwo(where: { id: $id }) {
       id
     }
   }
@@ -54,8 +54,8 @@ console.log(dataFromTypeForm);
 
 // Mutation to create a new entry
 const createQuestMutation = gql`
- mutation createIganWebhook($data: IganWebhookCreateInput!) {
-    createIganWebhook(data: $data) {
+ mutation createCytomegalovirusCaseTwo($data: CytomegalovirusCaseTwoCreateInput!) {
+    createCytomegalovirusCaseTwo(data: $data) {
       id
       placeholder
     }
@@ -64,8 +64,8 @@ const createQuestMutation = gql`
 
 // Mutation to publish the new entry
 const publishQuestMutation = gql`
-  mutation publishIganWebhook($id: ID!) {
-    publishIganWebhook(where: { id: $id }) {
+  mutation publishCytomegalovirusCaseTwo($id: ID!) {
+    publishCytomegalovirusCaseTwo(where: { id: $id }) {
       id
       placeholder
       publishedAt
@@ -85,7 +85,7 @@ async function tryT() {
     // const newQuest = await client.request(createQuestMutation, {
     //   fields: newData,
     // });
-    const questId = newQuest.createIganWebhook.id;
+    const questId = newQuest.createCytomegalovirusCaseTwo.id;
     console.log('New quest created:', newQuest);
 }
 // tryT()
@@ -94,8 +94,8 @@ const overwriteAndPublishQuest = async (newData) => {
   try {
     // Step 1: Query to check for existing entries
     const getExistingQuestQuery = gql`
-    query getExistingIganWebhooks {
-   iganWebhooks {
+    query getExistingCytomegalovirusCaseTwos {
+   cytomegalovirusCaseTwos {
     id
     placeholder
     }
@@ -104,9 +104,9 @@ const overwriteAndPublishQuest = async (newData) => {
 
     const existingData = await client.request(getExistingQuestQuery);
 
-    if (existingData.iganWebhooks.length > 0) {
+    if (existingData.cytomegalovirusCaseTwos.length > 0) {
       // Step 2: Delete the existing quest
-      const questId = existingData.iganWebhooks[0].id;
+      const questId = existingData.cytomegalovirusCaseTwos[0].id;
       await client.request(deleteQuestMutation, { id: questId });
       console.log('Existing quest deleted');
     }
@@ -120,7 +120,7 @@ const overwriteAndPublishQuest = async (newData) => {
     // const newQuest = await client.request(createQuestMutation, {
     //   fields: newData,
     // });
-    const questId = newQuest.createIganWebhook.id;
+    const questId = newQuest.createCytomegalovirusCaseTwo.id;
     console.log('New quest created:', newQuest);
 
     // Step 4: Publish the new quest
@@ -131,7 +131,7 @@ const overwriteAndPublishQuest = async (newData) => {
     console.log(publishedQuest.id);
     
    setDataPosted(()=> {
-    if (publishedQuest.publishIganWebhook.id) {
+    if (publishedQuest.publishCytomegalovirusCaseTwo.id) {
       return true
     }
     else{
@@ -155,10 +155,10 @@ console.log(dataFromTypeForm);
     if (!dataPosted) {
       return
     }
-    const fetchIganWebhookData = async () => {
+    const fetchCytomegalovirusCaseTwoData = async () => {
       const query = gql`
         query {
-            iganWebhooks {
+            cytomegalovirusCaseTwos {
             id
             placeholder
             }
@@ -168,15 +168,15 @@ console.log(dataFromTypeForm);
       try {
         const getData = await client.request(query);
         console.log('Fetched Quest Data:', getData);
-        console.log(getData.iganWebhooks[0]);
-        setQuestionsToDisplay(getData.iganWebhooks)
+        console.log(getData.cytomegalovirusCaseTwos[0]);
+        setQuestionsToDisplay(getData.cytomegalovirusCaseTwos)
         
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-   fetchIganWebhookData();
+   fetchCytomegalovirusCaseTwoData();
   }, [dataPosted]);
 
 useEffect(()=>{
@@ -1159,4 +1159,4 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
   )
 }
 
-export default IganWebhooks
+export default CytomegalovirusCaseTwo

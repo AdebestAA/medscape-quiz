@@ -17,7 +17,7 @@ const endpoint = "https://eu-west-2.cdn.hygraph.com/content/cm47eibia01nt07waw1i
 const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE3MzMyMjI5ODAsImF1ZCI6WyJodHRwczovL2FwaS1ldS13ZXN0LTIuaHlncmFwaC5jb20vdjIvY200N2VpYmlhMDFudDA3d2F3MWlmYTZmZC9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC1ldS13ZXN0LTIuaHlncmFwaC5jb20vIiwic3ViIjoiNGU3MWQ5MjEtNjhhNC00OGI4LWFjOTYtNDAzMjk0MWQ0MWQ2IiwianRpIjoiY200OGM3bjRuMDE4aDA3bWlmb3h4NmQ4ZSJ9.lPs3hseUWPjTbHCFjL3PmLwDx4Mw3d9vz-eczKV0FN9zJzjj4rj4dLF8UgWEvnZceeoOvooiyn1kxoMyrx036J9raJz0KBh8qw4g7C_DW3vWPTpY3FzGujlGI33WtrqmGRmCiEzwVNvxDL79T7dX3O9KQtgoWh_SELQ4KXYeW7TZ4HVZX06Q1_0xw3gHUEvmYzEni7Qs5zsoCu9Cw7PBsH2YiHTID3DenIyOuDugXczRaqjyMRhFEKEFcmr_3uQW2pzivazvCGl9_QBrNsdli4b4UF2UVW6L_U7XSLusUX-p2IiPzokK4o0dD0_rOT2sy8_Ldor2QIbIEQhIcOBipa3RejAY1ZN8LmlBVBME1q0mggb9Wdp_yJoDhfdMnWYkiXRqgp7b5ejNpACM2lS8NpbSwBDqKFk8mAcs4beehB4Xrmj50CIR99x4kxc0q-WwTF1KLuTjXv27tUjoluJvXd0O36-SAVpyXllZ5NiH6G9z-NfzZaKsc7BD0UEWCabUjmXxRxmMoyh1ksuCY-6Jt21CI_MhEci19tsQ0QXCaNTZDaBlZTxMgEFznW8UEYjVSukulgmQSp-yKYk6OK550CARsePVg69uZG63SZ20ao8n2NQwoBr_1nYQCl7QaydqxJroKW8bxOMHuzehcQrGiI1h0TbONUeo42n1eCoz1lE"
 
 
-const IganWebhooks = ({dataFromTypeForm}) => {
+const Influenza = ({dataFromTypeForm}) => {
 const [typeformData,setTypeFromData] = useState(dataFromTypeForm)
 // const [storeData] = useLocalStorage(typeformData || [])
 const [dataPosted,setDataPosted] = useState(false)
@@ -45,8 +45,8 @@ console.log(dataFromTypeForm);
 },[dataFromTypeForm])
 
     const deleteQuestMutation = gql`
- mutation deleteIganWebhook($id: ID!) {
-    deleteIganWebhook(where: { id: $id }) {
+ mutation deleteInfluenza($id: ID!) {
+    deleteInfluenza(where: { id: $id }) {
       id
     }
   }
@@ -54,8 +54,8 @@ console.log(dataFromTypeForm);
 
 // Mutation to create a new entry
 const createQuestMutation = gql`
- mutation createIganWebhook($data: IganWebhookCreateInput!) {
-    createIganWebhook(data: $data) {
+ mutation createInfluenza($data: InfluenzaCreateInput!) {
+    createInfluenza(data: $data) {
       id
       placeholder
     }
@@ -64,8 +64,8 @@ const createQuestMutation = gql`
 
 // Mutation to publish the new entry
 const publishQuestMutation = gql`
-  mutation publishIganWebhook($id: ID!) {
-    publishIganWebhook(where: { id: $id }) {
+  mutation publishInfluenza($id: ID!) {
+    publishInfluenza(where: { id: $id }) {
       id
       placeholder
       publishedAt
@@ -85,7 +85,7 @@ async function tryT() {
     // const newQuest = await client.request(createQuestMutation, {
     //   fields: newData,
     // });
-    const questId = newQuest.createIganWebhook.id;
+    const questId = newQuest.createInfluenza.id;
     console.log('New quest created:', newQuest);
 }
 // tryT()
@@ -94,8 +94,8 @@ const overwriteAndPublishQuest = async (newData) => {
   try {
     // Step 1: Query to check for existing entries
     const getExistingQuestQuery = gql`
-    query getExistingIganWebhooks {
-   iganWebhooks {
+    query getExistingInfluenzas {
+   influenzas {
     id
     placeholder
     }
@@ -104,9 +104,9 @@ const overwriteAndPublishQuest = async (newData) => {
 
     const existingData = await client.request(getExistingQuestQuery);
 
-    if (existingData.iganWebhooks.length > 0) {
+    if (existingData.influenzas.length > 0) {
       // Step 2: Delete the existing quest
-      const questId = existingData.iganWebhooks[0].id;
+      const questId = existingData.influenzas[0].id;
       await client.request(deleteQuestMutation, { id: questId });
       console.log('Existing quest deleted');
     }
@@ -120,7 +120,7 @@ const overwriteAndPublishQuest = async (newData) => {
     // const newQuest = await client.request(createQuestMutation, {
     //   fields: newData,
     // });
-    const questId = newQuest.createIganWebhook.id;
+    const questId = newQuest.createInfluenza.id;
     console.log('New quest created:', newQuest);
 
     // Step 4: Publish the new quest
@@ -131,7 +131,7 @@ const overwriteAndPublishQuest = async (newData) => {
     console.log(publishedQuest.id);
     
    setDataPosted(()=> {
-    if (publishedQuest.publishIganWebhook.id) {
+    if (publishedQuest.publishInfluenza.id) {
       return true
     }
     else{
@@ -155,10 +155,10 @@ console.log(dataFromTypeForm);
     if (!dataPosted) {
       return
     }
-    const fetchIganWebhookData = async () => {
+    const fetchInfluenzaData = async () => {
       const query = gql`
         query {
-            iganWebhooks {
+            influenzas {
             id
             placeholder
             }
@@ -168,15 +168,15 @@ console.log(dataFromTypeForm);
       try {
         const getData = await client.request(query);
         console.log('Fetched Quest Data:', getData);
-        console.log(getData.iganWebhooks[0]);
-        setQuestionsToDisplay(getData.iganWebhooks)
+        console.log(getData.influenzas[0]);
+        setQuestionsToDisplay(getData.influenzas)
         
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-   fetchIganWebhookData();
+   fetchInfluenzaData();
   }, [dataPosted]);
 
 useEffect(()=>{
@@ -1159,4 +1159,4 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
   )
 }
 
-export default IganWebhooks
+export default Influenza
