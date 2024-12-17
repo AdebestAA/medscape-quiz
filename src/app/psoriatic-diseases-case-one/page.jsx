@@ -1,6 +1,6 @@
 // PsoriaticDiseasesCaseOne
 
-import PsoriaticDiseasesCaseOne from '@/components/PsoriaticDiseasescaseOne';
+import PsoriaticDiseasesCaseOne from '@/components/PsoriaticDiseasesCaseOne';
 
 import React from 'react'
 const endpoint = `https://api.typeform.com/forms/yxo4ZS4L`;
