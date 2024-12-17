@@ -1,7 +1,6 @@
 
-// import ItpWebhooks from "@/components/ItpWebhooks";
-import ItpWebhooks from '@/components/ItpWebhooks';
 import React from 'react'
+import ItpWebhooks from '@/components/ItpWebhooks';
 
 
 
@@ -17,7 +16,7 @@ const page = async() => {
                 'Content-Type': 'application/json'
             }
         });
-        // console.log(response);
+        console.log(response);
         
         
         if (!response.ok) {
@@ -25,7 +24,7 @@ const page = async() => {
           }
           
           const data = await response.json();
-          // console.log(data);
+          console.log(data);
 
         return (
         <ItpWebhooks dataFromTypeForm={data}  />
