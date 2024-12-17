@@ -1,8 +1,8 @@
 // MultipleSclerosisCaseTwo
 
-import MultipleSclerosisCaseTwo from '@/components/MultipleSclerosisCaseTwo';
 
 import React from 'react'
+import MultipleSclerosisCaseTwo from '@/components/MultipleSclerosisCaseTwo';
 const endpoint = `https://api.typeform.com/forms/uM32tLJl`;
 
 const page = async() => {

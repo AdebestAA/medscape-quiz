@@ -267,7 +267,7 @@ if (index === 0) {
     </p>
 })}</article> */}
 
-{questionsToDisplay[0]?.placeholder?.welcome_screens.map((welItem,welIndex)=>{
+{questionsToDisplay[0]?.placeholder?.welcome_screens?.map((welItem,welIndex)=>{
 
 return (
 

@@ -1,9 +1,9 @@
 // MultipleSclerosisCaseOne
 
+import React from 'react'
 import MultipleSclerosisCaseOne from '@/components/MultipleSclerosisCaseOne';
 
 
-import React from 'react'
 const endpoint = `https://api.typeform.com/forms/tUSWOhEb`;
 
 const page = async() => {

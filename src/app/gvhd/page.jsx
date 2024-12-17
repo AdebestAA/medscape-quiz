@@ -1,9 +1,6 @@
 // Gvhd
-
-import Gvhd from '@/components/Gvhd';
-
-
 import React from 'react'
+import Gvhd from '@/components/Gvhd';
 const endpoint = `https://api.typeform.com/forms/ynyaW3Jo`;
 
 const page = async() => {

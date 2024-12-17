@@ -1,10 +1,8 @@
 // AATD Webhooks
+import React from 'react'
 
 
 import AatdWebhooks from '@/components/AatdWebhooks';
-
-
-import React from 'react'
 const endpoint = `https://api.typeform.com/forms/DPalEntB`;
 
 const page = async() => {

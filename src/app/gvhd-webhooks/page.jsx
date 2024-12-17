@@ -1,9 +1,9 @@
 // GvhdWebhooks
+import React from 'react'
 
 import GvhdWebhooks from '@/components/GvhdWebhooks';
 
 
-import React from 'react'
 const endpoint = `https://api.typeform.com/forms/GrcGl8yN`;
 
 const page = async() => {

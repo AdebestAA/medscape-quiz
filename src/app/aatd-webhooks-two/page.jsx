@@ -1,12 +1,10 @@
 // AatdWebhooksTwo
 
-
-
+import React from 'react'
 import AatdWebhooksTwo from '@/components/AatdWebhooksTwo';
 
 
 
-import React from 'react'
 const endpoint = `https://api.typeform.com/forms/X70kxYr4`;
 
 const page = async() => {
