@@ -1013,4 +1013,169 @@ const surveyInfos = [
     name:"Multiple Sclerosis End",
     link:"/multiple-sclerosis-end"
   },
+    {
+    id:"198",
+    name:"Leukemia case 2",
+    link:"/leukemia-case-two"
+  },
+    {
+    id:"199",
+    name:"Leukemia case 1",
+    link:"/leukemia-case-one"
+  },
+    {
+    id:"200",
+    name:"Influenza Case 2",
+    link:"/influenza-case-two"
+  },
+    {
+    id:"201",
+    name:"Influenza Case 1",
+    link:"/influenza-case-one"
+  },
+    {
+    id:"202",
+    name:"Cytomegalovirus biotest",
+    link:"/cytomegalovirus-biotest"
+  },
+    {
+    id:"203",
+    name:"Breast Cancer III",
+    link:"/breast-cancer-three"
+  },
+    {
+    id:"204",
+    name:"ITP case 2",
+    link:"/itp-case-two"
+  },
+    {
+    id:"205",
+    name:"ITP case 1",
+    link:"/itp-case-one"
+  },
+    {
+    id:"206",
+    name:"PHN Case 1",
+    link:"/pnh-case-one"
+  },
+    {
+    id:"207",
+    name:"PHN Case 2",
+    link:"/pnh-case-two"
+  },
+    {
+    id:"208",
+    name:"Psoriatic diseases case 2",
+    link:"/psoriatic-diseases-case-two"
+  },
+    {
+    id:"209",
+    name:"Psoriatic diseases case 1",
+    link:"/psoriatic-diseases-case-one"
+  },
+    {
+    id:"210",
+    name:"Cardiac Surgery case 2",
+    link:"/cardiac-surgery-case-two"
+  },
+    {
+    id:"211",
+    name:"Cardiac Surgery case 1",
+    link:"/cardiac-surgery-case-one"
+  },
+    {
+    id:"212",
+    name:"Multiple sclerosis case 2",
+    link:"/multiple-sclerosis-case-two"
+  },
+    {
+    id:"213",
+    name:"Multiple sclerosis case 1",
+    link:"/multiple-sclerosis-case-one"
+  },
+    {
+    id:"214",
+    name:"Anaemia and CKD",
+    link:"/anaemia-and-ckd"
+  },
+    {
+    id:"215",
+    name:"Anaemia And Ckd impact assessment",
+    link:"/anaemia-and-ckd-impact-assessment"
+  },
+    {
+    id:"216",
+    name:"aTTP case 2",
+    link:"/attp-case-two"
+  },
+    {
+    id:"217",
+    name:"Hypertrophic Cardiomyopathy Case 2",
+    link:"/hypertrophic-cardiomyopathy-case-two"
+  },
+    {
+    id:"218",
+    name:"Hypertrophic Cardiomyopathy Case 1",
+    link:"/hypertrophic-cardiomyopathy-case-one"
+  },
+    {
+    id:"219",
+    name:"aTTP Case 1",
+    link:"/attp-case-one"
+  },
+    {
+    id:"220",
+    name:"Heart failure obtain certificate",
+    link:"/heart-failure-obtain-certificate"
+  },
+    {
+    id:"221",
+    name:"Hypertrophic Cardiomyopathy POST-event",
+    link:"/hypertrophic-cardiomyopathy-post-event"
+  },
+    {
+    id:"222",
+    name:"Hypertrophic Cardiomyopathy PRE-event",
+    link:"/hypertrophic-cardiomyopathy-pre-event"
+  },
+    {
+    id:"223",
+    name:"IgAN Case 2",
+    link:"/igan-case-two"
+  },
+    {
+    id:"224",
+    name:"IgAN Case 1",
+    link:"/igan-case-one"
+  },
+    {
+    id:"225",
+    name:"Heart Failure CASE",
+    link:"/heart-failure-case"
+  },
+    {
+    id:"226",
+    name:"Acute Myeloid leukaemia",
+    link:"/acute-myeloid-leukaemia"
+  },
+    {
+    id:"227",
+    name:"IgAN",
+    link:"/igan"
+  },
+    {
+    id:"228",
+    name:"CKD-TD2 pre-survey-plus-webinar",
+    link:"/ckd-td2-pre-survey-plus-webinar"
+  },
+    {
+    id:"229",
+    name:"CKD-TD2 post test",
+    link:"/ckd-td2-post-test"
+  },
+    {
+    id:"230",
+    name:"CKD-TD2 CASES",
+    link:"/ckd-td2-cases"
+  },
 ]
