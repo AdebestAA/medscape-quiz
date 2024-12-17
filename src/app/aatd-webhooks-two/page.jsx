@@ -16,7 +16,7 @@ const page = async() => {
                 'Content-Type': 'application/json'
             }
         });
-        console.log(response);
+        // console.log(response);
         
         
         if (!response.ok) {
@@ -24,7 +24,7 @@ const page = async() => {
           }
           
           const data = await response.json();
-          console.log(data);
+        //   console.log(data);
 
         return (
         <AatdWebhooksTwo dataFromTypeForm={data} />
