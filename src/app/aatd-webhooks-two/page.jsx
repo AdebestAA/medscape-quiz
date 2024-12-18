@@ -20,7 +20,11 @@ const page = async() => {
         
         
         if (!response.ok) {
-              throw new Error(`Error: ${response.statusText}`);
+              return (
+                <div>
+                    <h1>Something went wrong</h1>
+                </div>
+            )
           }
           
           const data = await response.json();
