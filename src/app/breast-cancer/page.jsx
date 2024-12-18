@@ -28,7 +28,7 @@ const page = async() => {
             )
           }
           
-         
+          const data = await response.json();
          
 
         return (
