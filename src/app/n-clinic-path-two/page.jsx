@@ -17,7 +17,7 @@ const page = async() => {
                 'Content-Type': 'application/json'
             }
         });
-        console.log(response);
+      
         
         
         if (!response.ok) {
@@ -25,16 +25,10 @@ const page = async() => {
           }
           
           const data = await response.json();
-          console.log(data);
+  
 
         return (
         <NClinicPathTwo dataFromTypeForm={data}  />
-//         <div className='flex justify-center items-center h-screen text-[navy] font-bold'>
-// <p>
-//  still in process...
-// </p>
-//         </div>
-        
         )
 }
 export default page

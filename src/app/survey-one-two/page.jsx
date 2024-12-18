@@ -14,19 +14,18 @@ const page = async() => {
                 'Content-Type': 'application/json'
             }
         });
-        // console.log(response);
-        
-        
-        // if (!response.ok) {
-          //     throw new Error(`Error: ${response.statusText}`);
-          // }
-    console.log("removed");
-    
-          const data = await response.json();
-          console.log(data);
 
-  return (
-    
+        if (!response.ok) {
+             return (
+                <div>
+                    <h1>Something went wrong,reload</h1>
+                </div>
+            )
+          }
+          const data = await response.json();
+      ;
+
+  return (    
     <SurveyOneTwo  dataFromTypeForm={data} />
   )
 }

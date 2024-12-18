@@ -16,15 +16,19 @@ const page = async() => {
                 'Content-Type': 'application/json'
             }
         });
-        console.log(response);
+      
         
         
         if (!response.ok) {
-              throw new Error(`Error: ${response.statusText}`);
+             return (
+                <div>
+                    <h1>Something went wrong,reload</h1>
+                </div>
+            )
           }
           
           const data = await response.json();
-          console.log(data);
+         
 
         return (
         <LymphomaThree dataFromTypeForm={data} />

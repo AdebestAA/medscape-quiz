@@ -19,21 +19,19 @@ const page = async() => {
                 'Content-Type': 'application/json'
             }
         });
-        // console.log(response);
-        // console.log("environement varibale with next extnesion",process.env.NEXT_PUBLIC_TYPEFORM_TOKEN)
-        // console.log("environement varibale no next entension",process.env.TYPEFORM_TOKEN)
-        // console.log("just log");
-        
-        // if (!response.ok) {
-          //     throw new Error(`Error: ${response.statusText}`);
-          // }
-          
+      
+      if (!response.ok) {
+         return (
+                <div>
+                    <h1>Something went wrong,reload</h1>
+                </div>
+            )
+      }
 
           const data = await response.json();
-          console.log(data);
+    
 
   return (
-
  <PnhPostTest dataFromTypeForm={data}  />
 
   )
