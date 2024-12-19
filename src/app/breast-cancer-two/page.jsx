@@ -1,7 +1,7 @@
 // BreastCancerTwo
 
 import BreastCancerTwo from '@/components/BreastCancerTwo';
-import LymphomaThree from '@/components/LymphomaThree';
+
 
 
 
@@ -30,7 +30,6 @@ const page = async() => {
           
           const data = await response.json();
          
-
         return (
         <BreastCancerTwo dataFromTypeForm={data} />
         )
