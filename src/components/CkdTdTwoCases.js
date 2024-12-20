@@ -10,7 +10,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import VimeoPlayer from "./VimeoComponents/VimeoPlayer";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import TypeformFormatJsx from "./Typeform formats/TypeformFormatJsx";
+import TypeformFormatJsx from "./TypeformFormats/TypeformFormatJsx";
 // import Link from "next/link";
 
 

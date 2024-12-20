@@ -134,7 +134,7 @@ if (zp.includes("www") || zp.includes("http")) {
 {welItem.properties.show_button && 
 <footer>
 
-<button className="bg-green-800 text-white py-2 sm:px-4 sm:max-w-[100px] w-full   rounded-md"
+<button className="bg-green-800 text-white py-2 sm:px-4 sm:w-[100px] sm:max-w-[150px] w-full   rounded-md"
 onClick={()=>{
     setStartQuiz(true)
 }}
@@ -193,7 +193,7 @@ if (zp.includes("www") || zp.includes("http")) {
 {welItem.properties.show_button && 
 <footer>
 
-<button className="bg-green-800 text-white py-2 sm:px-4 sm:max-w-[100px] w-full rounded-md"
+<button className="bg-green-800 text-white py-2 sm:px-4 sm:w-[150px] sm:max-w-[300px] w-full rounded-md"
 onClick={()=>{
     setStartQuiz(true)
 }}
