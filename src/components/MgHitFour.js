@@ -7,13 +7,8 @@ import { GraphQLClient, gql, } from 'graphql-request';
 import useLocalStorage from "@/CustomHooks/UseLocalStorage";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
-// import { GraphQLClient, gql } from 'graphql-request';
-        // mutation {
-        //   publishContact(where: { id: "${contactId}" }) {
-        //   id
-        //   firstname
-        //   }
-        // }
+import TypeformFormatJsx from "./TypeformFormats/TypeformFormatJsx";
+
 
 const endpoint = "https://eu-west-2.cdn.hygraph.com/content/cm1hxxlry022j07ukn5k554xn/master";
 
@@ -27,8 +22,10 @@ const [dataPosted,setDataPosted] = useState(false)
 const [questionsToDisplay,setQuestionsToDisplay] = useState([])
 const [step,setStep] = useState(0)
 const [startQuiz,setStartQuiz] = useState(false)
+const [optionsChecked,setOptionsChecked] = useState([])
+const [possibleOptions,setPosibleOptions] = useState (["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AV","AW","AX","AY","AZ","BA","BB","BC","BD","BE","BF","BG","BH","BI","BJ","BK","BL","BM","BN","BO","BP","BQ","BR","BS","BT","BU","BV","BW","BX","BY","BZ","CA","CB","CC","CD","CE","CF","CG","CH","CI","CJ","CK","CL","CM","CN","CO","CP","CQ","CR","CS","CT","CU","CV","CW","CX","CY","CZ"])
 
-const eachQuestAndFeedback =useRef([])
+const eachQuestAndFeedback =useRef([]) 
 
 
 // Initialize the GraphQL client
@@ -288,161 +285,20 @@ setStep(0)
 
 
   return (
-    <main className={"bg-[#EFEFEF] text-[#403D99]  h-[100%]"}>
-      
-<div className=" fixed space-x-[2px] bottom-[10%] right-[5%]">
-    <button className="bg-green-800 px-4 py-2 rounded-md" 
-    onClick={()=>{
-    if (!startQuiz) {
-    return
-}
-    if (step + 1  == questionsToDisplay[0]?.placeholder?.fields?.length) {
-        return
-    }
-    setStep(prev => prev + 1)
-}}
-    ><IoIosArrowDown className="text-white"/></button>
-    <button className="bg-green-800 px-4 py-2 rounded-md" 
-    onClick={()=>{
-        if (!startQuiz) {
-            return
-        }
-        if (step == 0) {
-            return
-        }
-        setStep(prev => prev - 1)
-    }}
-    ><IoIosArrowUp className="text-white"/></button>
-</div>
-<div className="text-center px-64 text-lg flex flex-col items-center justify-center min-h-screen">
-<h1 className="font-bold text-[navy] text-[2rem] px-32">{questionsToDisplay[0]?.placeholder?.welcome_screens[0].title.split("*").join("")}</h1>
-<article>{questionsToDisplay[0]?.placeholder?.welcome_screens[0]?.properties.description.split("\n").map((item,index)=>{
+    <TypeformFormatJsx
+step={step}
+setStep={setStep}
+startQuiz={startQuiz}
+setStartQuiz={setStartQuiz}
+handleScroll={handleScroll}
+questionsToDisplay={questionsToDisplay}
+setQuestionsToDisplay={setQuestionsToDisplay}
+optionsChecked={optionsChecked}
+setOptionsChecked={setOptionsChecked}
+possibleOptions={possibleOptions}
+eachQuestAndFeedback={eachQuestAndFeedback}
+/>
 
-if (index === 0) {
-    return <p key={index} className="mt-4  text-[0.95rem]">
-        {item.split("*").map((ash,ashInd)=>{
-          if (ash.trim() === "argenx, US".trim()) {
-            return (
-              <span key={ashInd} className="font-bold">{ash}</span>
-            )
-          }
-          return (
-            <span key={ash}>{ash}</span>
-          )
-        })}
-    </p>
-}
-    return <p key={index} className="mt-4  text-[0.95rem]">
-        {item}
-    </p>
-})}</article>
-{questionsToDisplay[0]?.placeholder?.welcome_screens[0]?.properties.show_button && 
-
-<button className="bg-green-800 text-white py-2 px-4 rounded-md"
-onClick={()=>{
-    setStartQuiz(true)
-}}
->{questionsToDisplay[0]?.placeholder?.welcome_screens[0]?.properties.button_text}</button>
-
-}
-</div>
-
-
-{/* questions */}
-
-<div>
-   {questionsToDisplay[0]?.placeholder?.fields?.map((item,index)=>{
-
-if (item.type == "statement") {
-return (
-    <div  ref={el => eachQuestAndFeedback.current[index] = el}   key={item?.id} className="text-center px-64 py-16 text-lg flex flex-col items-center justify-center  h-screen overflow-y-scroll space-y-4">
-{item?.title?.split("\n").map((statement,statementIndex)=>{
-
-return (
-    <p key={statementIndex} className="text-start w-full text-[0.95rem]">
-        {statement}
-    </p>
-) 
-
-})}
-<button
-onClick={()=>{
-    if (step + 1  == questionsToDisplay[0]?.placeholder?.fields?.length) {
-        return
-    }
-    setStep(prev => prev + 1)
-}}
-className="bg-green-800 text-white py-2 px-4 rounded-md" >{item.properties.button_text}</button>
-    </div>
-)
-}
-
-else if (item.type == "multiple_choice") {
-  
-    return (
-    <div  ref={el => eachQuestAndFeedback.current[index] = el}  key={item?.id} className="text-center px-64 text-lg flex flex-col items-center  h-screen  justify-center">
-<h1 className="w-full text-start font-bold" >{item.title}</h1>
-{item?.properties?.choices?.map((choice,choiceIndex)=>{
-
-let option = "A"
-if (choiceIndex == 1) {
-    option = "B"
-}
-else if (choiceIndex === 2) {
-    option = "C"
-}
-else if (choiceIndex === 3) {
-    option = "D"
-}
-else if (choiceIndex === 4) {
-    option = "E"
-}
-else if (choiceIndex === 5) {
-    option = "F"
-}
-else if (choiceIndex === 6) {
-    option = "G"
-}
-
-return (
-   
-  <aside key={choice.id} className="my-2 w-full text-start text-[0.95rem] border-[2px] border-[navy] flex items-start px-2 py-2 gap-x-2 bg-[#D7DDE8] hover:bg-[#A6BCDA]  cursor-pointer"
-   onClick={()=>{
-    if (step + 1 == questionsToDisplay[0]?.placeholder?.fields?.length) {
-        return
-    }
-
-    setStep(prev => prev + 1)
-}}
-  >
-  <span className="border-[2px] border-[navy] px-2 rounded-sm " >{option}</span> 
-  <p>
-     {choice.label}
-    </p>
-    </aside>
-    
-    )
-
-})}
-<button
- onClick={()=>{
-    if (step + 1 == questionsToDisplay[0]?.placeholder?.fields?.length) {
-        return
-    }
-
-    setStep(prev => prev + 1)
-}}
-className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
-    </div>
-    )
-}
-
-   })}
-
-</div>
-
-
-    </main>
   );
 }
 
