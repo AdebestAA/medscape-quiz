@@ -4,8 +4,9 @@ const VimeoPlayer = ({ videoUrl }) => {
     <>
         <iframe
           src={`${videoUrl.replace('vimeo.com', 'player.vimeo.com/video')}`}
-          width="65%"
-          height="100%"
+          // width="65%"
+          // height="100%"
+          className="lg:w-[65%] w-full h-full"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           //   allowFullScreen

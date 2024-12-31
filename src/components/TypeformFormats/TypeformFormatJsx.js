@@ -19,7 +19,7 @@ setStep,startQuiz,setStartQuiz,eachQuestAndFeedback}) {
 
 
  return (
-  <main className={"bg-[#EFEFEF] text-[#403D99]  h-[100%]"}>
+  <main className={"bg-[#EFEFEF] text-[#403D99]  h-[100%] md:text-md text-sm"}>
 {/* scroll up and down btn */}
 
 {startQuiz && <div className=" fixed space-x-[2px] bottom-[10%] right-[5%] z-50">
@@ -222,7 +222,7 @@ onClick={()=>{
 // MATRIX
 if (quest.type == "matrix") {
    return (
-    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className=" px-64 py-16 text-lg flex flex-col items-center justify-center  h-screen overflow-y-scroll space-y-4 ">
+    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className="xl:px-64 sm:px-16 px-4 py-16 text-lg flex flex-col items-center justify-center  h-screen overflow-y-scroll space-y-4 ">
 <p className="w-full">{quest.title}</p>
 {/* options btn */}
 <div className="w-full">
@@ -315,7 +315,7 @@ if (quest?.attachment?.type === "video") {
     
     return (
         
-        <aside key={choice.id} className={`my-2 ${quest?.properties?.choices?.length > 30 ? " w-[30%]" : " w-[100%]"}  rounded-sm text-start text-[0.95rem] border-[2px] border-[navy] flex items-start px-2 py-2 gap-x-2 bg-[#D7DDE8] hover:bg-[#A6BCDA]  cursor-pointer`}
+        <aside key={choice.id} className={`my-2 ${quest?.properties?.choices?.length > 30 ? " w-[30%]" : " w-[100%]"}  rounded-sm text-start text-[0.95rem] border-[2px] border-[navy] flex items-start px-2 py-2 gap-x-2 bg-[#D7DDE8] hover:bg-[#A6BCDA]  cursor-pointer overflow-x-hidden`}
         onClick={()=>{
             if (step + 1 == questionsToDisplay[0]?.placeholder?.fields?.length) {
                 return
@@ -324,9 +324,9 @@ if (quest?.attachment?.type === "video") {
             setStep(prev => prev + 1)
         }}
         >
-  <span className="border-[2px] border-[navy] px-2 rounded-sm " 
+  <span className={`border-[2px] border-[navy] px-2 rounded-sm `} 
   >{option}</span> 
-  <p>
+  <p className={`overflow-x-hidden ${choice.label.length > 10 ? "text-sm" : ""}`}>
      {choice.label}
     </p>
     </aside>
@@ -386,7 +386,7 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
     
     return (
         
-        <aside key={choice.id} className={`my-2 ${quest?.properties?.choices?.length  > 20 ? " w-[30%] mx-[2px] " : " w-[100%]"}  rounded-sm text-start text-[0.95rem] border-[2px] border-[navy] flex items-start px-2 py-2 gap-x-2 bg-[#D7DDE8] hover:bg-[#A6BCDA]  cursor-pointer`}
+        <aside key={choice.id} className={`my-2 overflow-x-hidden ${quest?.properties?.choices?.length  > 20 ? " md:w-[30%] w-[45%] mx-[2px] " : " w-[100%]"}  rounded-sm text-start text-[0.95rem] border-[2px] border-[navy] flex items-start px-2 py-2 gap-x-2 bg-[#D7DDE8] hover:bg-[#A6BCDA]  cursor-pointer`}
         onClick={()=>{
             if (step + 1 == questionsToDisplay[0]?.placeholder?.fields?.length) {
                 return
@@ -397,7 +397,7 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
         >
   <span className="border-[2px] border-[navy] px-2 rounded-sm " 
   >{option}</span> 
-  <p>
+  <p  className={`overflow-x-hidden  ${choice.label.length > 10 ? "text-sm" : ""}`}> 
      {choice.label}
     </p>
     </aside>
@@ -429,7 +429,7 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">ok</button>
 else if (quest.type === "contact_info") {
  return (
 
-    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className=" px-64 py-16 text-lg flex flex-col items-center justify-center  h-screen overflow-y-scroll space-y-4 ">
+    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className=" xl:px-64 sm:px-16 px-4 py-16 text-lg flex flex-col items-center justify-center  h-screen overflow-y-scroll space-y-4 ">
         <header className="text-start w-full">
         <h1 >{quest.title.replace("*","")}</h1>
         <aside>{quest.properties.description?.split("*").map((desc,descIndex)=>{
@@ -471,7 +471,52 @@ onClick={()=>{
     
     setStep(prev => prev + 1)
 }}
-className="bg-green-800 text-white py-2 px-4 rounded-md">{quest.properties.button_text}</button>
+className="bg-green-800 text-white py-2 px-4 rounded-md">{"OK"}</button>
+    </div>
+    </aside>
+ )
+    
+
+}
+// Email
+else if (quest.type == "email") {
+ return (
+
+    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className=" px-64 py-16 text-lg flex flex-col items-center justify-center  h-screen overflow-y-scroll space-y-4 ">
+        <header className="text-start w-full font-bold">
+        <h1 className="">{quest.title.replace("*","")}</h1>
+        {/* <aside>{quest.properties.description?.split("*").map((desc,descIndex)=>{
+            if (desc.includes("https:")) {
+                return (
+                    <a key={descIndex} className="font-bold underline" href={desc.replace("[privacy policy]","").replace("(","").replace(")","")} > privacy policy </a>
+                )
+            }
+return (
+    <span key={descIndex}>{desc}</span>
+)
+
+        })}</aside> */}
+        </header>
+<form className="w-full my-2">
+<input 
+type={"email"}
+id={"email"}
+className="focus:border-b-2 border-b-[1px]   w-full border-[#403D99] bg-[#EFEFEF] py-2 text-lg outline-none"
+
+ />
+</form>
+
+  <div className='w-full flex flex-start'>
+
+<button
+onClick={()=>{
+    if (step + 1 == questionsToDisplay[0]?.placeholder?.fields?.length) {
+        return
+    }
+    
+    setStep(prev => prev + 1)
+}}
+className="bg-green-800 text-white py-2 px-4 rounded-md">{"OK"}</button>
     </div>
     </aside>
  )
@@ -483,7 +528,7 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">{quest.properties.butto
 else if (quest.type == "address") {
  return (
 
-    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className=" px-64 py-16 text-lg flex flex-col items-center justify-center  h-screen overflow-y-scroll space-y-4 ">
+    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className=" xl:px-64 sm:px-16 px-4 py-16 text-lg flex flex-col items-center justify-center  h-screen overflow-y-scroll space-y-4 ">
         <header className="text-start w-full font-bold">
         <h1 className="">{quest.title.replace("*","")}</h1>
         <aside>{quest.properties.description?.split("*").map((desc,descIndex)=>{
@@ -525,7 +570,7 @@ onClick={()=>{
     
     setStep(prev => prev + 1)
 }}
-className="bg-green-800 text-white py-2 px-4 rounded-md">{quest.properties.button_text}</button>
+className="bg-green-800 text-white py-2 px-4 rounded-md">{"OK"}</button>
     </div>
     </aside>
  )
@@ -538,7 +583,7 @@ className="bg-green-800 text-white py-2 px-4 rounded-md">{quest.properties.butto
 else if (quest.type == "short_text") {
  return (
 
-    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className=" px-64 py-16 text-lg flex flex-col items-center justify-center  h-screen overflow-y-scroll space-y-4 ">
+    <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className=" xl:px-64 sm:px-16 px-4 py-16 text-lg flex flex-col items-center justify-center  h-screen overflow-y-scroll space-y-4 ">
         <header className="text-start w-full">
         <h1 className="font-bold">{quest.title.replace("*","")}</h1>
         <aside>{quest.properties.description?.split("*").map((desc,descIndex)=>{
@@ -590,7 +635,7 @@ onClick={()=>{
     
     setStep(prev => prev + 1)
 }}
-className="bg-green-800 text-white py-2 px-4 rounded-md">{quest.properties.button_text}</button>
+className="bg-green-800 text-white py-2 px-4 rounded-md">{"OK"}</button>
     </div>
     </aside>
  )
@@ -649,11 +694,10 @@ return (
 // STATEMENT
 else if (quest.type == "statement") {
 if (quest?.attachment?.type === "video") {
+    // placement !== right
 if (quest?.layout?.placement !== "right") {
-    
-
     return (
-        <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className=" text-lg h-screen flex flex-col items-center justify-center">
+        <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className="text-lg h-screen flex flex-col items-center justify-center">
  <div className="flex flex-col items-center justify-center w-[70%] space-y-4 "> 
 <header className="text-start w-[65%] text-[0.95rem]">
         <h1 className={` ${quest.title.length < 30 ? "font-bold" : ""}`}>{quest.title.replace("*","").includes("\n") === true ? (
@@ -724,7 +768,7 @@ if (index % 2 == 1) {
         })}</aside>
         </header>
  </div>
-           <div style={{ position: 'relative',width:"70%",height:"70vh" }} className="flex items-center justify-center ">
+           <div className="flex items-center justify-center relative w-[70%] h-[70vh] ">
 
     <VimeoPlayer  videoUrl={quest?.attachment?.href} /> 
 
@@ -738,7 +782,7 @@ if (index % 2 == 1) {
     return (
 <aside ref={el => eachQuestAndFeedback.current[index] = el} key={quest?.id} className=" text-lg h-screen   flex ">
 
-         <div className="flex flex-col items-center justify-center w-[60%] px-12 min-h-full space-y-4  "> 
+         <div className="flex flex-col items-center justify-center w-[60%] px-12 min-h-full space-y-4 bg-[red] "> 
     <div className="overflow-y-scroll py-16">
 
         <header className="text-start w-full text-[0.95rem]">
@@ -961,7 +1005,7 @@ else if (quest.type == "opinion_scale") {
  return (
 
        <aside  ref={el => eachQuestAndFeedback.current[index] = el}  key={quest?.id} className=" text-lg  h-screen overflow-y-scroll">
-        <div className="flex flex-col items-center justify-center w-full px-64 min-h-screen">
+        <div className="flex flex-col items-center justify-center w-full md:px-64 px-4 min-h-screen">
 
 <h1 className="w-full text-start font-bold my-4" >{quest.title}</h1>
 
@@ -994,7 +1038,7 @@ onClick={()=>{
     
     setStep(prev => prev + 1)
 }}
-className="bg-green-800 text-white py-2 px-4 rounded-md">{quest.properties.button_text}</button>
+className="bg-green-800 text-white py-2 px-4 rounded-md">{"OK"}</button>
     </div>
     </div>
 </aside>
