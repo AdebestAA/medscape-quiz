@@ -11,7 +11,7 @@ export default function Home() {
   [{surveyInfos.length}]
   </h1>
 <div className="w-full">
-{surveyInfos.reverse().map((item,index)=>{
+{surveyInfos.map((item,index)=>{
 
   return (
     <Link key={index} href={item.link} className="border-navy flex items-center w-[90%] bg-white rounded-lg mx-auto my-4 py-2 border-[1px] border-[gray] shadow-md cursor-pointer hover:shadow-lg">
